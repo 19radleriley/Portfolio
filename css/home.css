@@ -1,0 +1,91 @@
+#home {
+    /* Describes padding below first name and above last name */
+    --name-padding: 2rem;
+    /* Describes the border below the first name and above the last name */
+    --name-border: clamp(10px, 1vw, 15px) solid var(--off-black);
+    /* Describes the width of the hero section (the min limits the max size) */
+    --hero-width: min(35vw, 650px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: var(--hero-width);
+    height: 100vh;
+    margin: auto;
+}
+
+.hero-name {
+    fill: var(--off-black);
+}
+
+#first-name {
+    padding-bottom: var(--name-padding);
+    border-bottom: var(--name-border);
+}
+
+#last-name {
+    padding-top: var(--name-padding);
+    border-top: var(--name-border);
+}
+
+#cta {
+    margin: 2rem 3rem;
+    font-size: 2rem;
+    line-height: 1.5em;
+    color: var(--gray);
+}
+
+#arrow-container {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+#hero-arrow {
+    width: 20%;
+}
+
+.arrow-stroke1 {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 10;
+    stroke-miterlimit: 10;
+}
+
+.arrow-stroke2 {
+    fill: none;
+    stroke: var(--accent-color-faded);
+    stroke-width: 10;
+    stroke-miterlimit: 10;
+}
+
+/* Tablet widths */
+@media (max-width: 1000px) {
+    #home {
+        --hero-width: 50vw;
+    }
+
+    #cta {
+        margin: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    #arrow {
+        width: 30%;
+    }
+}
+
+/* Mobile widths */
+@media (max-width: 430px) {
+    #home {
+        --hero-width: 80vw;
+    }
+
+    #cta {
+        margin: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+
+    #arrow {
+        width: 30%;
+    }
+}

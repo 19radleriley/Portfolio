@@ -1,0 +1,38 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5rem 0 3rem;
+}
+
+#logo {
+    width: 75px;
+}
+
+#nav-link-list {
+    gap: 2.5rem;
+    display: flex;
+}
+
+#nav-link-list > li {
+    list-style: none;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gray);
+    transition: var(--color-transition);
+}
+
+/* Represents the link of the page that the user is currently on */
+.nav-link.current {
+    padding: .25rem .75rem .25rem 1rem;
+    color: var(--accent-color);
+    outline: 3px solid var(--accent-color);
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+

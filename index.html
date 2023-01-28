@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link in the CSS files -->
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/home.css">
+
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <!-- Personal Javascript -->
+    <script src="./js/navbar.js"></script>
+    <script src="./js/home.js"></script>
+
+    <title>Riley Radle</title>
+</head>
+
+<body>
+
+    <!-- Start the navbar as being hidden -->
+    <nav aria-hidden="true">
+        <img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt="">
+
+        <ul id="nav-link-list">
+            <li><span id="work-link" class="nav-link current hoverable">Work</span></li>
+            <li><span id="about-link" class="nav-link hoverable">About</span></li>
+            <li><span id="contact-link" class="nav-link hoverable">Contact</span></li>
+        </ul>
+    </nav>
+
+    <section id="home" aria-hidden="false">
+        <svg class="hero-name" id="first-name" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 724.8 153.8" xml:space="preserve">
+            <g id="Isolation_Mode">
+                <g>
+                    <path 
+                        d="M48.3,0v153.7H0V0H48.3z M31.2,0h33.6c15.1,0,27.3,2.3,36.8,6.8c9.4,4.5,16.4,10.8,20.9,18.7s6.7,17,6.7,27.2
+			c0,10.1-2.2,19.1-6.7,27.1S111.1,94,101.6,98.6c-9.4,4.5-21.7,6.8-36.8,6.8H31.2V69.2h29.2c4.1,0,7.5-0.5,10.1-1.6s4.6-2.7,6-4.9
+			s2.1-4.8,2.1-7.7c0-3.1-0.7-5.7-2.1-7.8c-1.4-2.1-3.4-3.7-6-4.8s-6-1.6-10.1-1.6H31.2V0z M94.4,87.9l43.9,65.9h-56L45,87.9H94.4z" />
+                    <path d="M222.9,0v153.7h-49.4V0H222.9z" />
+                    <path d="M318.3,0v113.1h62.6v40.6H270V0H318.3z" />
+                    <path d="M471.9,0v153.7h-46.1V0H471.9z M459.2,0h77.5v38.4h-77.5V0z M459.2,56h73.1v37.3h-73.1V56z M459.2,115.3h77.5
+			v38.4h-77.5V115.3z" />
+                    <path d="M724.8,0l-55.3,93.3v60.4h-49.4V93.8L564.5,0h56l24.2,49.6L668.9,0H724.8z" />
+                </g>
+            </g>
+        </svg>
+
+        <div id="cta">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+        </div>
+
+        <svg class="hero-name" id="last-name" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 694 156.7" xml:space="preserve">
+            <g id="Isolation_Mode">
+                <g>
+                    <path d="M45.9,10.6v146.1H0V10.6H45.9z M29.6,10.6h31.9c14.3,0,26,2.2,35,6.5s15.6,10.2,19.8,17.7s6.4,16.1,6.4,25.9
+			c0,9.6-2.1,18.2-6.4,25.8c-4.2,7.6-10.9,13.5-19.8,17.8c-9,4.3-20.6,6.5-35,6.5H29.6V76.4h27.8c3.9,0,7.1-0.5,9.6-1.6
+			c2.5-1,4.4-2.6,5.7-4.7c1.3-2.1,2-4.5,2-7.3c0-2.9-0.7-5.4-2-7.4s-3.2-3.5-5.7-4.6c-2.5-1-5.7-1.6-9.6-1.6H29.6
+			C29.6,49.2,29.6,10.6,29.6,10.6z M89.7,94.1l41.7,62.6H78.2L42.7,94.1L89.7,94.1L89.7,94.1z" />
+                    <path d="M194.9,117.2l3.5,10.4l-15.9,29h-52.2L212.8,0l82.5,156.6h-52.2L227.7,129l3.1-11.9l-18-40.3L194.9,117.2z
+			 M174.7,104.9h77.2v33h-77.2V104.9z" />
+                    <path d="M356.7,10.6v146.1h-47.8V10.6H356.7z M340.6,156.7V117h23.6c4,0,8.1-0.3,12.3-1c4.2-0.7,8-2.2,11.5-4.4
+			c3.5-2.2,6.3-5.6,8.5-10c2.2-4.5,3.2-10.4,3.2-18c0-7.5-1.1-13.5-3.2-18c-2.2-4.5-5-7.8-8.5-10s-7.3-3.7-11.5-4.4s-8.3-1-12.3-1
+			h-23.6V10.5h25.7c17,0,31.6,2.9,43.7,8.8c12.2,5.8,21.5,14.2,28,25c6.5,10.9,9.7,23.9,9.7,39.2c0,15.2-3.2,28.2-9.7,39.1
+			s-15.8,19.3-28,25.2c-12.2,5.8-26.8,8.8-43.7,8.8h-25.7V156.7z" />
+                    <path d="M514.5,10.6v107.5H574v38.6H468.6V10.6H514.5z" />
+                    <path d="M632.4,10.6v146.1h-43.8V10.6H632.4z M620.3,10.6H694v36.5h-73.7V10.6z M620.3,63.8h69.5v35.5h-69.5V63.8z
+			 M620.3,120.1H694v36.5h-73.7V120.1z" />
+                </g>
+            </g>
+        </svg>
+
+        <div id="arrow-container">
+            <svg id="hero-arrow" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 138.3 76.5" style="enable-background:new 0 0 138.3 76.5;" xml:space="preserve">
+                <g id="Isolation_Mode">
+                    <g>
+                        <polyline class="arrow-stroke1" points="3.9,4 69.4,69.5 134.4,4.4 		" />
+                        <polyline class="arrow-stroke2" points="36.4,4 69.3,36.9 101.9,4.2 		" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- <nav>
+    <a href="./work.html">Work</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+   </nav>  -->
+
+    <section id="work" class="page" aria-hidden="true">
+        <!-- Instead of a separate html page swap out the content with javascript -->
+    </section>
+
+    <section id="about" class="page" aria-hidden="true">
+        <!-- Instead of a separate html page swap out the content with javascript -->
+    </section>
+
+    <section id="contact" class="page" aria-hidden="true">
+        <!-- Instead of a separate html page swap out the content with javascript -->
+    </section>
+</body>
+
+</html>

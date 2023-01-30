@@ -36,3 +36,52 @@ nav {
     color: var(--accent-color);
 }
 
+#hamburger {
+    display: none;
+    width: 60px;
+    fill: var(--gray);
+}
+
+@media (max-width: 650px) {
+    nav {
+        padding: 3rem 3rem 0 3rem;
+    }
+
+    #hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    #nav-link-list {
+        z-index: 50;
+        display: block;
+        position: fixed;
+        left: 35%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-top: 20vh;
+        transition: transform .25s ease-in-out;
+    }
+
+    nav.nav-hidden > #nav-link-list {
+        transform: translateX(65vw);
+    }
+
+    nav::before {
+        z-index: 25;
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        filter: brightness(.5);
+    }
+
+    .nav-link {
+        line-height: 2;
+        font-size: 2rem;
+    }
+}
+

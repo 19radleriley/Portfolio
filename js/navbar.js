@@ -4,8 +4,10 @@ $(() => {
     $("#logo").click(() => {
         clearCurrentNavigation(); 
         $("nav").attr("aria-hidden", "true");
+        $("nav").attr("class", "nav-hidden");
         $("#home").attr("aria-hidden", "false");
-    })
+        $("nav").attr("class", "nav-hidden");
+    });
 
     // Update the nav-links and pages on click
     $(".nav-link").click(event => {
@@ -34,6 +36,20 @@ $(() => {
         }
 
         // Else this is already the current...Do nothing
+    });
+
+    // Nav bar toggling 
+    $("#hamburger").click(() => {
+        var hidden = $("nav").attr("class");
+
+        // Not hidden
+        if (hidden.length == 0) {
+            $("nav").attr("class", "nav-hidden");
+        }
+        // Hidden
+        else {
+            $("nav").attr("class", "");
+        }
     });
 });
 

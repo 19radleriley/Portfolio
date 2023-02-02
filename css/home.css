@@ -15,9 +15,9 @@
 }
 
 .hero-name {
+    display: none;
     fill: var(--off-black);
-    animation: fade-in 1s forwards;
-    min-height: 100px;
+    /* min-height: 150px; */
 }
 
 #first-name {
@@ -31,15 +31,13 @@
 }
 
 #cta {
+    /* Begin by not showing the call to action */
     display: none;
     margin: 2rem 3rem;
     font-size: 2rem;
     line-height: 1.5em;
     color: var(--gray);
-    opacity: 0;
-    animation: fade-in 1s forwards .5s;
 }
-
 
 #arrow-container {
     text-align: center;
@@ -49,7 +47,14 @@
 #hero-arrow {
     width: 20%;
     opacity: 0;
-    animation: drop-in .5s forwards 1.5s;
+    transform: translateY(-50%);
+    transition: transform .25s ease-out,
+                opacity .25s;
+}
+
+#hero-arrow.dropped {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .arrow-stroke1 {
@@ -98,7 +103,7 @@
     }
 }
 
-@keyframes fade-in {
+/* @keyframes fade-in {
    0% {
     opacity: 0;
    } 
@@ -116,4 +121,4 @@
     opacity: 1;
     transform: translateY(0);
    } 
-}
+} */

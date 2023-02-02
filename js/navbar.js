@@ -3,13 +3,14 @@ $(() => {
     // Go to the home page when the logo is clicked
     $("#logo").click(() => {
         clearCurrentNavigation(); 
-        $("nav").attr("aria-hidden", "true");
-        $("nav").attr("class", "nav-hidden");
-        $("#home").attr("aria-hidden", "false");
         $("nav").attr("class", "nav-hidden");
 
-        $("#home").fadeIn(500);
-        $("#cta").toggle(500, "swing");
+        $("main").fadeToggle(100, () => {
+            // displayHomePage();
+            $("#home").fadeToggle(0, () => {
+                displayHomePage();
+            });
+        });
     });
 
     // Update the nav-links and pages on click

@@ -19,6 +19,12 @@
     cursor: pointer;
 }
 
-*[aria-hidden="true"] {
-    display: none !important;
+/* Begin by displaying nothing */
+#home, main {
+    display: none;
+}
+
+/* The works page should be the first one to appear */
+#about, #contact {
+    display: none;
 }

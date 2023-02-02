@@ -7,6 +7,9 @@ $(() => {
         $("nav").attr("class", "nav-hidden");
         $("#home").attr("aria-hidden", "false");
         $("nav").attr("class", "nav-hidden");
+
+        $("#home").fadeIn(500);
+        $("#cta").toggle(500, "swing");
     });
 
     // Update the nav-links and pages on click

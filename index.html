@@ -24,33 +24,7 @@
 
 <body>
 
-    <div id="backdrop-filter"></div>
-    <!-- Start the navbar as being hidden -->
-    <nav aria-hidden="true" class="nav-hidden">
-        <img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt="">
-
-        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 100 75" style="enable-background:new 0 0 100 75;" xml:space="preserve">
-            <g id="Isolation_Mode">
-                <g>
-                    <rect class="hamburger-line top" width="100" height="10" />
-                </g>
-                <g>
-                    <rect class="hamburger-line middle" y="32.5" width="100" height="10" />
-                </g>
-                <g>
-                    <rect class="hamburger-line bottom" y="65" width="100" height="10" />
-                </g>
-            </g>
-        </svg>
-        <ul id="nav-link-list" class="nav-hidden">
-            <li><span id="work-link" class="nav-link current hoverable">Work</span></li>
-            <li><span id="about-link" class="nav-link hoverable">About</span></li>
-            <li><span id="contact-link" class="nav-link hoverable">Contact</span></li>
-        </ul>
-    </nav>
-
-    <section id="home" aria-hidden="false">
+    <section id="home" class="page" aria-hidden="false">
         <svg class="hero-name" id="first-name" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 724.8 153.8" xml:space="preserve">
             <g id="Isolation_Mode">
@@ -107,23 +81,46 @@
         </div>
     </section>
 
-    <!-- <nav>
-    <a href="./work.html">Work</a>
-    <a href="./about.html">About</a>
-    <a href="./contact.html">Contact</a>
-   </nav>  -->
+    <main>
+        <div id="backdrop-filter"></div>
+        <!-- Start the navbar as being hidden -->
+        <nav aria-hidden="true" class="nav-hidden">
+            <img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt="">
 
-    <section id="work" class="page" aria-hidden="true">
-        <!-- Instead of a separate html page swap out the content with javascript -->
-    </section>
+            <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 100 75" style="enable-background:new 0 0 100 75;" xml:space="preserve">
+                <g id="Isolation_Mode">
+                    <g>
+                        <rect class="hamburger-line top" width="100" height="10" />
+                    </g>
+                    <g>
+                        <rect class="hamburger-line middle" y="32.5" width="100" height="10" />
+                    </g>
+                    <g>
+                        <rect class="hamburger-line bottom" y="65" width="100" height="10" />
+                    </g>
+                </g>
+            </svg>
+            <ul id="nav-link-list" class="nav-hidden">
+                <li><span id="work-link" class="nav-link current hoverable">Work</span></li>
+                <li><span id="about-link" class="nav-link hoverable">About</span></li>
+                <li><span id="contact-link" class="nav-link hoverable">Contact</span></li>
+            </ul>
+        </nav>
 
-    <section id="about" class="page" aria-hidden="true">
-        <!-- Instead of a separate html page swap out the content with javascript -->
-    </section>
+        <section id="work" class="page" aria-hidden="true">
+            <!-- Instead of a separate html page swap out the content with javascript -->
+        </section>
 
-    <section id="contact" class="page" aria-hidden="true">
-        <!-- Instead of a separate html page swap out the content with javascript -->
-    </section>
+        <section id="about" class="page" aria-hidden="true">
+            <!-- Instead of a separate html page swap out the content with javascript -->
+        </section>
+
+        <section id="contact" class="page" aria-hidden="true">
+            <!-- Instead of a separate html page swap out the content with javascript -->
+        </section>
+    </main>
+
 </body>
 
 </html>

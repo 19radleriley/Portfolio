@@ -16,6 +16,8 @@
 
 .hero-name {
     fill: var(--off-black);
+    animation: fade-in 1s forwards;
+    min-height: 100px;
 }
 
 #first-name {
@@ -29,11 +31,15 @@
 }
 
 #cta {
+    display: none;
     margin: 2rem 3rem;
     font-size: 2rem;
     line-height: 1.5em;
     color: var(--gray);
+    opacity: 0;
+    animation: fade-in 1s forwards .5s;
 }
+
 
 #arrow-container {
     text-align: center;
@@ -42,6 +48,8 @@
 
 #hero-arrow {
     width: 20%;
+    opacity: 0;
+    animation: drop-in .5s forwards 1.5s;
 }
 
 .arrow-stroke1 {
@@ -88,4 +96,24 @@
     #arrow {
         width: 30%;
     }
+}
+
+@keyframes fade-in {
+   0% {
+    opacity: 0;
+   } 
+   100% {
+    opacity: 1;
+   }
+}
+
+@keyframes drop-in {
+   0% {
+    opacity: 0;
+    transform: translateY(-100%);
+   } 
+   100% {
+    opacity: 1;
+    transform: translateY(0);
+   } 
 }

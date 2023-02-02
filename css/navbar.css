@@ -61,6 +61,8 @@ nav {
         top: 0;
         bottom: 0;
         padding-top: 20vh;
+        padding-left: 5vw;
+        background-color: white;
         transition: transform .25s ease-in-out;
     }
 
@@ -68,20 +70,54 @@ nav {
         transform: translateX(65vw);
     }
 
-    nav::before {
-        z-index: 25;
-        content: "";
+    .nav-link {
+        line-height: 2;
+        font-size: 2rem;
+    }
+
+    #backdrop-filter {
+        display: none;
         position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        filter: brightness(.5);
+        backdrop-filter: brightness(60%);
     }
 
-    .nav-link {
-        line-height: 2;
-        font-size: 2rem;
+    /* Animation for clicking on the hamburger */
+
+    /* When navbar is hidden */
+    .hamburger-line {
+        transition: 
+            y .25s .1s,
+            transform .25s,
+            opacity 0s .1s;
+        transform-origin: center;
+    }
+
+    /* When navbar is visible */
+    nav.nav-visible .hamburger-line {
+        transition: 
+            y .25s,
+            transform .25s .1s,
+            opacity 0s .1s;
+    }
+
+    nav.nav-visible .hamburger-line.top,
+    nav.nav-visible .hamburger-line.bottom {
+        y: 32.5;
+    }
+
+    nav.nav-visible .hamburger-line.top {
+        transform: rotate(45deg);
+    }
+
+    nav.nav-visible .hamburger-line.middle {
+        opacity: 0;
+    }
+
+    nav.nav-visible .hamburger-line.bottom {
+        transform: rotate(-45deg);
     }
 }
-

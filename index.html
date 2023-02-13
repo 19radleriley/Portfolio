@@ -10,7 +10,7 @@
     <!-- Link in the CSS files -->
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/work.css">
 
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -18,7 +18,7 @@
 
     <!-- Personal Javascript -->
     <script src="./js/navbar.js"></script>
-    <!-- <script src="./js/home.js"></script> -->
+    <script src="./js/work.js"></script>
 </head>
 
 <body>
@@ -49,9 +49,14 @@
         </ul>
     </nav>
 
-
     <main id="work" class="page">
-        <h1>Work</h1>
+        <div id="work-selector">
+            <h1 id="selected-work-title">Selected Work</h1>
+            <h1 id="personal-work-title">Just Me</h1>
+            <button class="toggle active hoverable">
+                <div class="toggle-ball"></div>
+            </button>
+        </div>
     </main>
 
 </body>

@@ -11,14 +11,39 @@
 
     --foreground-dark: #414042;
     --foreground-light: #808285;
+    --off-white: #f0f0f0; 
     --accent-color: #75C7A3;
     --accent-color-faded: #A8DACB;
 
+    --page-margin: 0 6rem;
+
+    --fade: fade .5s forwards ease-in;
     --drop-transition: transform .25s ease-out;
     --opacity-transition: opacity .25s;
+    --background-transition: background-color .25s ease;
 }
 
 .hoverable:hover {
     cursor: pointer;
 }
 
+.page {
+    margin: var(--page-margin);
+    animation: var(--fade);
+}
+
+/* Update me later */
+@media (max-width: 400px) {
+   :root {
+    --page-margin: 0 3rem;
+   } 
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+    }
+}

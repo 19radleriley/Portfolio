@@ -1,22 +1,22 @@
 #home {
-    /* Describes padding below first name and above last name */
     --name-padding: 2rem;
-    /* Describes the border below the first name and above the last name */
-    --name-border: clamp(10px, 1vw, 15px) solid var(--off-black);
-    /* Describes the width of the hero section (the min limits the max size) */
-    --hero-width: min(35vw, 650px);
+    --name-border: 15px solid var(--foreground-dark);
+    --cta-margin: 2rem 3rem;
+    --cta-font-size: 2rem;
+    --arrow-width: 20%;
+
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: var(--hero-width);
+    width: min(35vw, 650px);
     height: 100vh;
     margin: auto;
 }
 
 .hero-name {
     display: none;
-    fill: var(--off-black);
+    fill: var(--foreground-dark);
     /* min-height: 150px; */
 }
 
@@ -36,7 +36,7 @@
     margin: 2rem 3rem;
     font-size: 2rem;
     line-height: 1.5em;
-    color: var(--gray);
+    color: var(--foreground-light);
 }
 
 #arrow-container {
@@ -48,8 +48,8 @@
     width: 20%;
     opacity: 0;
     transform: translateY(-50%);
-    transition: transform .25s ease-out,
-                opacity .25s;
+    transition: var(--drop-transition),
+                var(--opacity-transition);
 }
 
 #hero-arrow.dropped {
@@ -57,6 +57,7 @@
     opacity: 1;
 }
 
+/* Two properties below generated through Adobe Illustrator SVG */
 .arrow-stroke1 {
     fill: none;
     stroke: var(--accent-color);
@@ -74,15 +75,15 @@
 /* Tablet widths */
 @media (max-width: 1000px) {
     #home {
-        --hero-width: 50vw;
+        width: 50vw;
     }
 
     #cta {
         margin: 1rem 2rem;
-        font-size: 1.5rem;
+        font-size: 1.5rem
     }
 
-    #arrow {
+    #hero-arrow {
         width: 30%;
     }
 }
@@ -90,35 +91,6 @@
 /* Mobile widths */
 @media (max-width: 430px) {
     #home {
-        --hero-width: 80vw;
-    }
-
-    #cta {
-        margin: 1rem 2rem;
-        font-size: 1.5rem;
-    }
-
-    #arrow {
-        width: 30%;
+        width: 80vw;
     }
 }
-
-/* @keyframes fade-in {
-   0% {
-    opacity: 0;
-   } 
-   100% {
-    opacity: 1;
-   }
-}
-
-@keyframes drop-in {
-   0% {
-    opacity: 0;
-    transform: translateY(-100%);
-   } 
-   100% {
-    opacity: 1;
-    transform: translateY(0);
-   } 
-} */

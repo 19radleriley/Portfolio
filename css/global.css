@@ -9,22 +9,16 @@
     /* Default transition for color on hover effects */
     --color-transition: color .25s;
 
-    --off-black: #414042;
-    --gray: #808285;
+    --foreground-dark: #414042;
+    --foreground-light: #808285;
     --accent-color: #75C7A3;
     --accent-color-faded: #A8DACB;
+
+    --drop-transition: transform .25s ease-out;
+    --opacity-transition: opacity .25s;
 }
 
 .hoverable:hover {
     cursor: pointer;
 }
 
-/* Begin by displaying nothing */
-#home, main {
-    display: none;
-}
-
-/* The works page should be the first one to appear */
-#about, #contact {
-    display: none;
-}

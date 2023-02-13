@@ -21,7 +21,8 @@ nav {
 .nav-link {
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: var(--gray);
+    color: var(--foreground-light);
+    text-decoration: none;
     transition: var(--color-transition);
 }
 
@@ -39,7 +40,7 @@ nav {
 #hamburger {
     display: none;
     width: 60px;
-    fill: var(--gray);
+    fill: var(--foreground-light);
 }
 
 @media (max-width: 650px) {
@@ -85,7 +86,7 @@ nav {
         background-color: rgba(0, 0, 0, .5);
     }
 
-    /* Animation for clicking on the hamburger */
+    /* ===== Animation for clicking on the hamburger ===== */
 
     /* When navbar is hidden */
     .hamburger-line {

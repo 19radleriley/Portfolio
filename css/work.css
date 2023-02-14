@@ -1,16 +1,48 @@
-#work {
-    
-}
-
 #work-selector {
     display: flex;
-    gap: 1rem;
-    justify-content: right;
-    margin-top: 3rem;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+    margin-top: 2rem;
 }
 
+.work-type {
+    width: 50%;
+    padding: .5rem 0;
+    border-bottom: 5px solid var(--off-white);
+    font-size: 1rem;
+    color: var(--off-white);
+    transition: var(--color-transition), var(--border-transition);
+}
+
+.work-type.selected {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+#personal-work {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    animation: fade 1s ease forwards;
+}
+
+.thumbnail {
+    width: auto;
+    aspect-ratio: 16/9;
+    opacity: 0;
+    background-color: var(--off-white);
+}
+
+
 /* Not going to be displaying personal work to start */
-#personal-work-title {
+/* #personal-work-title {
     display: none;
 }
 
@@ -43,10 +75,10 @@
 .toggle.inactive >.toggle-ball {
     background: var(--accent-color);
     inset: 5px 5px 5px 55%;
-}
+} */
 
 /* Update me later */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
    #work-selector {
         justify-content: space-between;
     } 

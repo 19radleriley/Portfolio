@@ -8,11 +8,14 @@ $(() => {
         if (hidden == "nav-visible") {
             $("nav").attr("class", "nav-hidden");
             $("#backdrop-filter").fadeOut();
+            $("body").css("overflow", "auto");
         }
         // Hidden so show it
         else {
             $("nav").attr("class", "nav-visible");
             $("#backdrop-filter").fadeIn();
+
+            $("body").css("overflow", "hidden");
         }
     });
 
@@ -21,5 +24,6 @@ $(() => {
     $("#backdrop-filter").click(() => {
         $("nav").attr("class", "nav-hidden");
         $("#backdrop-filter").fadeOut();
+        $("body").css("overflow", "auto");
     });
 });

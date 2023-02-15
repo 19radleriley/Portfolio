@@ -1,9 +1,11 @@
 #work-selector {
     display: flex;
+    z-index: 5;
     text-align: center;
     width: 25%;
-    margin: auto;
-    margin-top: 2rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+    background-color: white;
 }
 
 .work-type {
@@ -29,7 +31,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 3rem 0;
     animation: fade 1s ease forwards;
 }
 
@@ -49,6 +51,8 @@
 @media (max-width: 650px) {
     #work-selector {
         width: 100%;
+        position: sticky;
+        top: 0;
     }
 
     .work-grid {

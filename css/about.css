@@ -1,0 +1,12 @@
+#my-picture {
+    width: 350px;
+}
+
+#about-me {
+    border-left: 10px solid var(--foreground-dark);
+    padding: 1rem;
+}
+
+#about-me-title {
+    font-size: 3.5rem;
+}

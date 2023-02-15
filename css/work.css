@@ -65,44 +65,7 @@
 }
 
 
-/* Not going to be displaying personal work to start */
-/* #personal-work-title {
-    display: none;
-}
-
-.toggle {
-    background-color: var(--off-white);
-    width: 4rem;
-    height: 2rem;
-    position: relative;
-    border: none;
-    border-radius: 1rem;
-    transition: var(--background-transition);
-}
-
-.toggle-ball {
-    position: absolute;
-    border-radius: 1rem;
-    transition: var(--background-transition), 
-        inset .25s ease;
-}
-
-.toggle.active {
-    background-color: var(--accent-color);
-}
-
-.toggle.active >.toggle-ball {
-    background-color: var(--off-white);
-    inset: 5px 55% 5px 5px;
-}
-
-.toggle.inactive >.toggle-ball {
-    background: var(--accent-color);
-    inset: 5px 5px 5px 55%;
-} */
-
-/* Update me later */
-@media (max-width: 500px) {
+@media (max-width: 650px) {
    #work-selector {
         justify-content: space-between;
     } 

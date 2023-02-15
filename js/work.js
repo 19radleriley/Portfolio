@@ -1,3 +1,31 @@
+clientWork = [
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+];
+
+personalWork = [
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+    "FIXME",
+];
+
 $(() => {
     // $(".toggle").click(() => {
     //     // Use normal javascript because in this case it is easier
@@ -62,4 +90,6 @@ $(() => {
             }
         }
     });
-})
+});
+
+

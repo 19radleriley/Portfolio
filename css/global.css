@@ -39,10 +39,10 @@ body {
     animation: var(--fade);
 }
 
-/* Update me later */
-@media (max-width: 500px) {
+/* This is the point at which we break into mobile view */
+@media (max-width: 650px) {
    :root {
-    --page-margin: 0 3rem;
+    --page-margin: 0 2rem;
    } 
 }
 

@@ -40,6 +40,26 @@
     background-color: var(--off-white);
 }
 
+@media (max-width: 1100px) {
+    #work-selector {
+        width: 50%;
+    }
+}
+
+@media (max-width: 650px) {
+    #work-selector {
+        width: 100%;
+    }
+
+    .work-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
+    #personal-work {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+}
+
 
 /* Not going to be displaying personal work to start */
 /* #personal-work-title {

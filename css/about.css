@@ -1,12 +1,74 @@
+#about > section:nth-child(even) { 
+    background-color: var(--off-white);
+}
+
+#intro {
+    padding-bottom: 5rem;
+}
+
+#intro ~ section {
+    padding-block: 5rem;
+}
+
+.section-title {
+    font-size: clamp(5rem, 10vw, 8rem);
+}
+
 #my-picture {
-    width: 350px;
+    height: 90vh;
 }
 
-#about-me {
-    border-left: 10px solid var(--foreground-dark);
-    padding: 1rem;
+#intro {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
 }
 
-#about-me-title {
-    font-size: 3.5rem;
+#intro-header {
+    height: fit-content;
+    border-left: 20px solid var(--foreground-dark);
+    padding: 5rem 2rem;
+}
+
+#about-me > p {
+    width: 50%;
+    margin: auto;
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+/* Styles for skills */
+
+#skills {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    text-align: right;
+}
+
+#skills-header {
+    border-right: 20px solid var(--foreground-dark);
+    padding: 2rem;
+}
+
+#skills-list {
+    font-size: 2rem;
+}
+
+#skills-list > li  {
+    list-style: none;
+    padding: .5rem 0;
+}
+
+#skills-img {
+    width: 40vw;
+    height: fit-content;
+}
+
+@media (max-width: 1300px) {
+   #my-picture {
+    width: 50%;
+    height: fit-content;
+   } 
 }

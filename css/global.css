@@ -28,12 +28,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    letter-spacing: .25rem;
     color: var(--foreground-dark);
-}
-
-p {
-    letter-spacing: 0;
 }
 
 .major-title {
@@ -47,8 +42,12 @@ p {
 }
 
 .page {
-    margin: var(--page-margin);
+    padding-top: 2rem;
     animation: var(--fade);
+}
+
+.page > * {
+    padding: var(--page-margin);
 }
 
 /* This is the point at which we break into mobile view */

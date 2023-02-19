@@ -1,4 +1,13 @@
-#about > section:nth-child(even) { 
+#about {
+    --border: 20px solid var(--foreground-dark);
+    padding-inline: 0;
+}
+
+#about>* {
+    padding-inline: var(--page-margin);
+}
+
+#about>section:nth-child(even) {
     background-color: var(--off-white);
 }
 
@@ -6,36 +15,53 @@
     padding-bottom: 5rem;
 }
 
-#intro ~ section {
+#intro~section {
     padding-block: 5rem;
 }
 
 .section-title {
-    font-size: clamp(5rem, 10vw, 8rem);
+    font-size: 8rem;
+}
+
+.section-description {
+    font-size: 2.5rem;
 }
 
 #my-picture {
     height: 90vh;
+    border: var(--border);
 }
 
 #intro {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
 }
 
 #intro-header {
     height: fit-content;
-    border-left: 20px solid var(--foreground-dark);
-    padding: 5rem 2rem;
+    border-left: var(--border);
+    padding: 8rem 2rem;
 }
 
-#about-me > p {
+
+#about-me >.section-description {
     width: 50%;
+    padding: 2rem;
     margin: auto;
-    font-size: 2rem;
-    line-height: 3rem;
+    line-height: 4rem;
+    text-align: center;
+}
+
+#about-me>.section-description::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 25%;
+    margin: auto;
+    margin-bottom: 3rem;
+    background-color: var(--foreground-dark);
 }
 
 /* Styles for skills */
@@ -43,20 +69,21 @@
 #skills {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 5rem;
     text-align: right;
 }
 
-#skills-header {
-    border-right: 20px solid var(--foreground-dark);
-    padding: 2rem;
+#skills-heading {
+    border-right: var(--border);
+    padding: 4rem 2rem;
 }
 
 #skills-list {
     font-size: 2rem;
 }
 
-#skills-list > li  {
+#skills-list>li {
     list-style: none;
     padding: .5rem 0;
 }
@@ -66,9 +93,113 @@
     height: fit-content;
 }
 
-@media (max-width: 1300px) {
-   #my-picture {
-    width: 50%;
-    height: fit-content;
-   } 
+@media (max-width: 1440px) {
+    #my-picture {
+        width: 50%;
+        height: fit-content;
+    }
+
+    .section-title {
+        font-size: 5rem;
+    }
+
+    #about-me>.section-description {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    #about {
+        --border: 10px solid var(--foreground-dark);
+    }
+
+    .section-title {
+        font-size: 3.5rem;
+    }
+
+    .section-description {
+        font-size: 2rem;
+    }
+
+    #intro {
+        gap: 1.5rem;
+    }
+
+    #intro-header {
+        height: fit-content;
+        border-left: var(--border);
+        padding: 5rem 2rem;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .section-description {
+        font-size: 1.5rem;
+    }
+
+    #intro-header {
+        height: fit-content;
+        border-left: var(--border);
+        padding: 5rem 2rem;
+    }
+
+    #about-me>.section-description {
+        width: 80%;
+        line-height: 3rem;
+    }
+
+    #about-me>.section-description::before {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .section-title {
+        font-size: 4rem;
+    }
+
+    .section-description {
+        font-size: 2rem;
+    }
+
+    #intro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #intro-header {
+        order: 1;
+    }
+
+    #my-picture {
+        order: 2;
+        width: calc(100% - 20px);
+    }
+
+    #about-me>.section-description {
+        width: 90%;
+        line-height: 3rem;
+    }
+
+    #skills {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #skills-heading {
+        padding: 0 3rem;
+        border-right: none;
+        border-bottom: var(--border);
+    }
+
+    #skills-img {
+        width: 100%;
+    }
+
 }

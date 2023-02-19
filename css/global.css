@@ -16,7 +16,7 @@
     --accent-color-faded: #A8DACB;
 
     /* Reused Units */
-    --page-margin: 0 6rem;
+    --page-margin: 6rem;
 
     /* Reused transitions */
     --fade: fade .5s forwards ease-in;
@@ -43,17 +43,14 @@ body {
 
 .page {
     padding-top: 2rem;
+    padding-inline: var(--page-margin);
     animation: var(--fade);
-}
-
-.page > * {
-    padding: var(--page-margin);
 }
 
 /* This is the point at which we break into mobile view */
 @media (max-width: 650px) {
    :root {
-    --page-margin: 0 2rem;
+    --page-margin: 2rem;
    } 
 }
 

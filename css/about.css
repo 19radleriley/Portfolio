@@ -46,7 +46,7 @@
 }
 
 
-#about-me >.section-description {
+#about-me > .section-description {
     width: 50%;
     padding: 2rem;
     margin: auto;
@@ -54,7 +54,7 @@
     text-align: center;
 }
 
-#about-me>.section-description::before {
+#about-me > .section-description::before {
     content: "";
     display: block;
     height: 2px;
@@ -103,7 +103,7 @@
         font-size: 5rem;
     }
 
-    #about-me>.section-description {
+    #about-me > .section-description {
         width: 75%;
     }
 }
@@ -148,12 +148,12 @@
         padding: 5rem 2rem;
     }
 
-    #about-me>.section-description {
+    #about-me > .section-description {
         width: 80%;
         line-height: 3rem;
     }
 
-    #about-me>.section-description::before {
+    #about-me > .section-description::before {
         margin-bottom: 2rem;
     }
 }
@@ -175,6 +175,8 @@
 
     #intro-header {
         order: 1;
+        padding: 0;
+        border: none;
     }
 
     #my-picture {
@@ -182,7 +184,7 @@
         width: calc(100% - 20px);
     }
 
-    #about-me>.section-description {
+    #about-me > .section-description {
         width: 90%;
         line-height: 3rem;
     }
@@ -201,5 +203,25 @@
     #skills-img {
         width: 100%;
     }
+}
 
+@media (max-width: 475px) {
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .section-description {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
 }

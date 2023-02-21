@@ -1,13 +1,16 @@
 #about {
     --border: 20px solid var(--foreground-dark);
-    padding-inline: 0;
+    --gap: 3rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-#about>* {
-    padding-inline: var(--page-margin);
+#about > * {
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
 }
 
-#about>section:nth-child(even) {
+#about > section:nth-child(even) {
     background-color: var(--off-white);
 }
 
@@ -15,8 +18,9 @@
     padding-bottom: 5rem;
 }
 
-#intro~section {
-    padding-block: 5rem;
+#intro ~ section {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
 }
 
 .section-title {
@@ -30,12 +34,12 @@
 #my-picture {
     height: 90vh;
     border: var(--border);
+    margin-right: var(--gap);
 }
 
 #intro {
     display: flex;
     justify-content: center;
-    gap: 3rem;
     align-items: center;
 }
 
@@ -44,7 +48,6 @@
     border-left: var(--border);
     padding: 8rem 2rem;
 }
-
 
 #about-me > .section-description {
     width: 50%;
@@ -70,12 +73,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
     text-align: right;
 }
 
 #skills-heading {
     border-right: var(--border);
+    margin-right: var(--gap);
     padding: 4rem 2rem;
 }
 
@@ -90,13 +93,14 @@
 
 #skills-img {
     width: 40vw;
-    height: fit-content;
+    height: auto;
 }
 
 @media (max-width: 1440px) {
+
     #my-picture {
         width: 50%;
-        height: fit-content;
+        height: auto;
     }
 
     .section-title {
@@ -111,6 +115,7 @@
 @media (max-width: 1024px) {
     #about {
         --border: 10px solid var(--foreground-dark);
+        --gap: 1.5rem;
     }
 
     .section-title {
@@ -119,10 +124,6 @@
 
     .section-description {
         font-size: 2rem;
-    }
-
-    #intro {
-        gap: 1.5rem;
     }
 
     #intro-header {
@@ -182,20 +183,22 @@
     #my-picture {
         order: 2;
         width: calc(100% - 20px);
+        margin-right: 0;
+        margin-top: 2rem;
     }
 
     #about-me > .section-description {
-        width: 90%;
         line-height: 3rem;
     }
 
     #skills {
         flex-direction: column;
-        gap: 2rem;
     }
 
     #skills-heading {
         padding: 0 3rem;
+        margin-right: 0;
+        margin-bottom: var(--gap);
         border-right: none;
         border-bottom: var(--border);
     }

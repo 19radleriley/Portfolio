@@ -1,57 +1,58 @@
 clientWork = [
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
 ];
 
 personalWork = [
-    "FIXME",
-    "FIXME",
-    "FIXME", 
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME", 
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME", 
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
-    "FIXME",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png", 
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png", 
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png", 
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
+    "./assets/images/Thumbnail-Temp.png",
 ];
 
 function addWorkThumbnails(workList, selector) {
    for (var i = 0; i < workList.length; i++) {
         var delay = i * 100;
-        $(selector).append($("<div></div>", {
+        $(selector).append($("<img>", {
+            src : workList[i],
             class : "thumbnail hoverable",
             style : `animation: fade .25s forwards ${delay}ms`
         }));
@@ -80,13 +81,6 @@ $(() => {
                 $("#client-work").css("display", "grid");
                 $("#personal-work").css("display", "none");
 
-                // for (var i = 0; i < 10; i++) {
-                //     var delay = i * 100;
-                //     $("#client-work").append($("<div></div>", {
-                //         class : "thumbnail hoverable",
-                //         style : `animation: fade .25s forwards ${delay}ms`
-                //     }));
-                // }
                 addWorkThumbnails(clientWork, "#client-work");
 
                 $("#personal-work > *").remove();
@@ -94,13 +88,7 @@ $(() => {
             else {
                 $("#client-work").css("display", "none");
                 $("#personal-work").css("display", "grid");
-                // for (var i = 0; i < 10; i++) {
-                //     var delay = i * 100;
-                //     $("#personal-work").append($("<div></div>", {
-                //         class : "thumbnail hoverable",
-                //         style : `animation: fade .25s forwards ${delay}ms`
-                //     }));
-                // }
+
                 addWorkThumbnails(personalWork, "#personal-work");
                 $("#client-work > *").remove();
             }

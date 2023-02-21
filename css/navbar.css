@@ -10,12 +10,18 @@ nav {
 }
 
 #nav-link-list {
-    gap: 2.5rem;
+    /* Grid is unsupported in many versions of safari :/ */
+    /* gap: 2.5rem; */
     display: flex;
 }
 
 #nav-link-list > li {
     list-style: none;
+}
+
+/* Workaround for gap not working */
+#nav-link-list > li:not(li:last-child) {
+    margin-right: 2.5rem;
 }
 
 .nav-link {
@@ -45,7 +51,9 @@ nav {
 
 @media (max-width: 650px) {
     nav {
-        padding: 3rem 3rem 0 3rem;
+        padding-top: calc(var(--page-margin) + 1rem);
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
     }
 
     #hamburger {

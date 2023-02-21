@@ -43,14 +43,15 @@ body {
 
 .page {
     padding-top: 2rem;
-    padding-inline: var(--page-margin);
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
     animation: var(--fade);
 }
 
 /* This is the point at which we break into mobile view */
 @media (max-width: 650px) {
    :root {
-    --page-margin: 2rem;
+    --page-margin: 1.5rem;
    } 
 }
 

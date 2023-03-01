@@ -1,58 +1,40 @@
+class Thumbnail {
+    constructor(title, image, link) {
+        this.title = title; 
+        this.image = image;
+        this.link = link;
+    }
+}
+
 clientWork = [
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest")
 ];
 
 personalWork = [
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png", 
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png", 
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png", 
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
-    "./assets/images/Thumbnail-Temp.png",
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest"),
+    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./case-studies/artsfest")
 ];
 
 function addWorkThumbnails(workList, selector) {
    for (var i = 0; i < workList.length; i++) {
         var delay = i * 100;
         $(selector).append($("<img>", {
-            src : workList[i],
+            src : workList[i].image,
             class : "thumbnail hoverable",
             style : `animation: fade .25s forwards ${delay}ms`
         }));

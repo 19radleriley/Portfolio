@@ -35,8 +35,7 @@
 }
 
 .thumbnail {
-    width: auto;
-    aspect-ratio: 4/3;
+    width: 100%;
     opacity: 0;
     border: none;
 }

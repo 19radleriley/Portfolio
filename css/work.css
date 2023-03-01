@@ -36,7 +36,6 @@
 
 .thumbnail {
     width: 100%;
-    aspect-ratio: 16/9;
     opacity: 0;
     border: none;
 }

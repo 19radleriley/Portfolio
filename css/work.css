@@ -36,7 +36,7 @@
 
 .thumbnail {
     width: auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
     opacity: 0;
     background-color: var(--off-white);
 }

@@ -49,6 +49,7 @@ nav {
     fill: var(--foreground-light);
 }
 
+
 @media (max-width: 650px) {
     nav {
         padding-top: calc(var(--page-margin) + 1rem);

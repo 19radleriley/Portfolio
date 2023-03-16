@@ -18,25 +18,14 @@ clientWork = [
 ];
 
 personalWork = [
-    // new Thumbnail("ArtsFest1", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("ArtsFest2", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("Jordan", "./assets/images/client-work/artsfest/MJ.jpg", "./artsfest.html", "portrait"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
+    new Thumbnail("Jordan", "./assets/images/personal-work/MJ.jpg", null, "portrait"),
+    new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
+    new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
+    new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
+    new Thumbnail("Jordan", "./assets/images/personal-work/MJ.jpg", null, "portrait"),
+    new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
+    new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
+    new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
 ];
 
 // Fires on page load
@@ -64,6 +53,7 @@ function addWorkThumbnails(workList, selector) {
         if (workList == clientWork) {
             var a = document.createElement("a");
             a.setAttribute("href", workList[i].link);
+            a.setAttribute("class", "thumbnail-container");
             var img = document.createElement("img");
             img.setAttribute("src", workList[i].image);
             img.setAttribute("class", `thumbnail ${workList[i].orientation} hoverable`);
@@ -73,26 +63,32 @@ function addWorkThumbnails(workList, selector) {
         }
 
         else {
+            var div = document.createElement("div");
+            div.setAttribute("class", "thumbnail-container");
             var img = document.createElement("img");
             img.setAttribute("src", workList[i].image);
             img.setAttribute("class", `thumbnail ${workList[i].orientation} hoverable`);
             img.setAttribute("id", `thumbnail-${i}`);
-            document.querySelector(selector).appendChild(img);
+            div.appendChild(img);
+            document.querySelector(selector).appendChild(div);
         }
     }
 
-
     // After the thumbnails have been added, set the heights 
     // of the rows to create a masonry grid
-    document.querySelectorAll(`${selector} .thumbnail`).forEach(t => {
-        t.addEventListener("load", () => {
-            setGridRowHeight(t);
+    document.querySelectorAll(`${selector} .thumbnail-container`).forEach(t => {
+        t.firstChild.addEventListener("load", () => {
+            setGridRowHeight(t, t.firstChild);
         });
+    });
+    $(window).off();
+    $(window).on("resize", () => {
+        setGridRowHeightAll(selector);
     });
 
     // Add the functionality for gallery mode
     if (workList == personalWork) {
-        $(`${selector} > .thumbnail`).click(function() {
+        $(`${selector} .thumbnail`).click(function() {
             console.log(this.className);
             var orientation = this.className.includes("landscape") ? "landscape" : "portrait";
             startGallery(this.src, this.id, orientation);
@@ -100,9 +96,15 @@ function addWorkThumbnails(workList, selector) {
     }
 }
 
-function setGridRowHeight(element) {
-    var rows = element.height / 10;
-    element.setAttribute("style", `grid-row-end: span ${Math.round(rows) + 1}`);
+function setGridRowHeight(container, thumbnail) {
+    var rows = thumbnail.height / 10;
+    container.setAttribute("style", `grid-row-end: span ${Math.floor(rows) + 1}`);
+}
+
+function setGridRowHeightAll(selector) {
+    document.querySelectorAll(`${selector} .thumbnail-container`).forEach(t => {
+        setGridRowHeight(t, t.firstChild);
+    });
 }
 
 function startGallery(src, id, orientation) {
@@ -193,16 +195,15 @@ function updateWorkType() {
 
         // Hide / show the corresponding work section
         if (this.id == "client-title") {
-            // $("#client-work").css("display", "grid");
-            // $("#personal-work").css("display", "none");
+            $("#client-work").css("display", "grid");
+            $("#personal-work").css("display", "none");
 
             addWorkThumbnails(clientWork, "#client-work");
-
             $("#personal-work > *").remove();
         }
         else {
-            // $("#client-work").css("display", "none");
-            // $("#personal-work").css("display", "grid");
+            $("#client-work").css("display", "none");
+            $("#personal-work").css("display", "grid");
 
             addWorkThumbnails(personalWork, "#personal-work");
             $("#client-work > *").remove();

@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/case-study.css">
+
+    <!-- Fontawesome Link -->
+    <script src="https://kit.fontawesome.com/55b918ce29.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <!-- Personal Javascript -->
+    <script src="js/case-study.js"></script>
+
     <title>ArtsFest</title>
 </head>
 <body>
@@ -35,31 +47,45 @@
         </ul>
     </nav>
 
-    <main class="page">
+    <main class="page case-study">
         <header>
-            <h1 class="major-title">A BEAUTIFUL REMEDY FOR TODAY</h1>
-            <img src="./assets/images/client-work/artsfest/thumbnail.png" alt="">
-            <p>Poster design for the University of Wisconsin La Crosse Art Department's ArtsFest</p>
-            <p>September 2022 - November 2022</p>
+            <h1 class="major-title case-study-headline">A Beautiful Remedy for Today</h1>
+            <img class="case-study-img landscape" src="./assets/images/client-work/artsfest/thumbnail.png" alt="">
+            <p class="img-caption">Poster design for the University of Wisconsin La Crosse Art Department's ArtsFest</p>
+            <p class="img-caption">September 2022 - November 2022</p>
         </header>
 
-        <section id="the-task">
-            <h2 class="major-title">THE TASK</h2>
-            <ul>
-                <li>The event "Creative Imperatives" is being re-branded as "ArtsFest"</li>
-                <li>Create a poster as a basis for the larger brand of "ArtsFest"</li>
-                <li>Conform to the theme "A Beautiful Remedy for Today"</li>
-                <li>Appeal to UWL students and greater La Crosse community</li>
-            </ul>
+        <section class="case-study-section" id="the-task">
+            <h2 class="major-title case-study-section-title">The Task</h2>
+            <div class="case-study-section-body slide-show">
+                <i class="fa-solid fa-chevron-left slide-show-btn hoverable"></i>
+                <ul class="slide-show-content">
+                    <li class="current">The event "Creative Imperatives" is being re-branded as "ArtsFest"</li>
+                    <li>Create a poster as a basis for the larger brand of "ArtsFest"</li>
+                    <li>Conform to the theme "A Beautiful Remedy for Today"</li>
+                    <li>Appeal to UWL students and greater La Crosse community</li>
+                </ul>
+                <i class="fa-solid fa-chevron-right slide-show-btn hoverable"></i>
+            </div>
         </section>
-        <section id="hand-in-hand">
-            <h2 class="major-title">HAND IN HAND</h2>
+        <section class="case-study-section" id="hand-in-hand">
+            <div>
+                <h2 class="major-title case-study-section-title">Hand in Hand</h2>
+                <!-- <div class="case-study-section-body">
+                    <span class="img-caption">“I felt the best way to emphasize the role of art as a remedy was to visually express the two as literally being hand in hand – firmly supporting each other”</span>
+                </div> -->
+                <img class="case-study-img portait" src="./assets/images/client-work/artsfest/hand-in-hand.jpg" alt="">
+
+            </div>
         </section>
-        <section id="typography">
-            <h2 class="major-title">TYPOGRAPHY</h2>
+        <section class="case-study-section" id="typography">
+            <div>
+                <h2 class="major-title case-study-section-title">Typography</h2>
+                <img class="case-study-img portait" src="./assets/images/client-work/artsfest/typography.png" alt="">
+            </div>
         </section>
-        <section id="color">
-            <h2 class="major-title">COLOR</h2>
+        <section class="case-study-section" id="color">
+            <h2 class="major-title case-study-section-title">Color</h2>
         </section>
     </main>
     

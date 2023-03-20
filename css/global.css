@@ -15,6 +15,9 @@
     --accent-color: #75C7A3;
     --accent-color-faded: #A8DACB;
 
+    /* Reused border */
+    --border: 20px solid var(--foreground-dark);
+
     /* Reused Units */
     --page-margin: 6rem;
 
@@ -43,9 +46,12 @@ body {
 
 .page {
     padding-top: 2rem;
+    animation: var(--fade);
+}
+
+.page > * {
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
-    animation: var(--fade);
 }
 
 /* This is the point at which we break into mobile view */

@@ -35,10 +35,6 @@ $(() => {
 
     // Initially show the client work
     addWorkThumbnails(clientWork, "#client-work");
-    // addWorkThumbnails(personalWork, "#personal-work");
-    // addWorkThumbnails(personalWork, "#client-work");
-
-    // $(".work-type").click(updateWorkType);
 
     $("#client-title").click(updateWorkType);
     $("#personal-title").click(updateWorkType);

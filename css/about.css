@@ -1,14 +1,13 @@
 #about {
-    --border: 20px solid var(--foreground-dark);
     --gap: 3rem;
-    padding-left: 0;
-    padding-right: 0;
+    /* padding-left: 0;
+    padding-right: 0; */
 }
 
-#about > * {
+/* #about > * {
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
-}
+} */
 
 #about > section:nth-child(even) {
     background-color: var(--off-white);

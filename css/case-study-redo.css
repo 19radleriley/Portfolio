@@ -1,6 +1,7 @@
 .case-study {
     max-width: 800px;
     margin: auto;
+    margin-bottom: 5rem;
 }
 
 header {
@@ -31,6 +32,25 @@ header {
 .case-study-img {
     width: 100%;
     margin-bottom: 1.5rem;
+}
+
+.more-info ul {
+    list-style: none;
+}
+
+.info {
+    margin-bottom: 2rem;
+    line-height: 2rem;
+}
+
+.info .info-title {
+    line-height: 2.5rem;
+}
+
+.info-list li {
+    max-width: 75ch;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 @media (max-width: 800px) {

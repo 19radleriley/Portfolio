@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 /* Global resets */
 * {
@@ -30,12 +31,12 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Karla", sans-serif;
     color: var(--foreground-dark);
 }
 
 .major-title {
-    font-family: "Jost", "Montserrat", sans-serif;
+    font-family: "Jost", "Karla", sans-serif;
     letter-spacing: 0;
     text-transform: uppercase;
 }
@@ -49,10 +50,10 @@ body {
     animation: var(--fade);
 }
 
-.page > * {
+/* .page > * {
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
-}
+} */
 
 /* This is the point at which we break into mobile view */
 @media (max-width: 650px) {

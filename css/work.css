@@ -1,3 +1,8 @@
+#work {
+    margin-right: var(--page-margin);
+    margin-left: var(--page-margin);
+}
+
 #work-selector {
     display: flex;
     z-index: 5;

@@ -1,0 +1,54 @@
+.case-study {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    margin-bottom: 3rem;
+}
+
+.case-study-title {
+    margin-bottom: 2rem;
+}
+
+.case-study-description {
+    display: grid;
+    grid-template-columns: 1fr .45fr;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.case-study-subtitle {
+    margin-right: .5rem;
+}
+
+.case-study-information {
+    margin-left: .5rem;
+    list-style: none;
+    color: var(--foreground-light);
+}
+
+.case-study-img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .case-study {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+
+    .case-study-description {
+        display: block;
+    }
+
+    .case-study-subtitle {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .case-study-information {
+        margin-left: 0;
+    }
+}

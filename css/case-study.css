@@ -1,90 +1,76 @@
-.case-study-section:nth-child(odd) {
-    text-align: right;
-}
-
-.case-study-section:nth-child(even) {
-    /* background-color: var(--off-white); */
-    /* background-color: hsl(0, 50%, 90%); */
-    background-color: hsl(207, 50%, 95%);
-}
-
-.case-study-section:nth-child(odd) .case-study-section-title {
-    background-color: #F05146;
-}
-.case-study-section:nth-child(even) .case-study-section-title {
-    background-color: #6DCACD;
-}
-
-header, .case-study-section > * {
-    width: 60%;
+.case-study {
+    max-width: 800px;
     margin: auto;
 }
 
-.case-study-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    margin-top: 5rem; 
-    margin-bottom: 5rem;
-}
-
-.case-study-headline {
-    margin-bottom: 2rem;
-    font-size: 6rem;
-    line-height: 90%;
-    text-align: center;
-}
-
-.case-study-section-title {
-    /* color: #FEFAD6; */
-    color: hsl(207, 50%, 95%);
-    font-size: 6rem;
+header {
     margin-bottom: 3rem;
-    line-height: 90%;
 }
 
-.case-study-section-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.case-study-title {
+    margin-bottom: 2rem;
 }
 
-.case-study-section-body.slide-show {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-    border-top: var(--border);
-    border-bottom: var(--border);
-
-    display: flex;
-    justify-content:center;
-    align-items: center;
+.case-study-description {
+    display: grid;
+    grid-template-columns: 1fr .45fr;
+    font-size: 1.1rem;
+    line-height: 2rem;
 }
 
-.case-study-img.landscape {
+.case-study-subtitle {
+    max-width: 45ch;
+    margin-right: .5rem;
+}
+
+.case-study-information {
+    margin-left: .5rem;
+    list-style: none;
+    color: var(--foreground-light);
+}
+
+.case-study-img {
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
-.case-study-img.portait {
-    width: 75%;
+
+.info {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    line-height: 2rem;
 }
 
-.img-caption {
-    font-size: 1.5rem;
+.info ul {
+    list-style: none;
 }
 
-.slide-show-btn {
-    font-size: 5rem;    
+.info .info-title {
+    line-height: 2.5rem;
 }
 
-.slide-show-content {
-    padding-left: 10%;
-    padding-right: 10%;
+.info-list li {
+    max-width: 75ch;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.slide-show li {
-    display: none;
-    font-size: 3rem;
-}
+@media (max-width: 800px) {
+    .case-study {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
 
-.slide-show .current {
-    display: block;
+    .case-study-description {
+        display: block;
+    }
+
+    .case-study-subtitle {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .case-study-information {
+        margin-left: 0;
+    }
 }

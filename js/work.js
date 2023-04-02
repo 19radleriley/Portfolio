@@ -9,11 +9,11 @@ class Thumbnail {
 
 clientWork = [
     new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
+    new Thumbnail("CBA", "./assets/images/client-work/cba/thumbnail2.jpg", "./cba.html", "landscape"),
+    // new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
+    // new Thumbnail("CBA", "./assets/images/client-work/cba/thumbnail.jpg", "./cba.html", "landscape"),
+    // new Thumbnail("ArtsFest", "./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
+    // new Thumbnail("CBA", "./assets/images/client-work/cba/thumbnail.jpg", "./cba.html", "landscape"),
 
 ];
 

@@ -1,0 +1,63 @@
+#about {
+    max-width: 800px;
+    margin: auto;
+}
+
+#about > * {
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+#intro > .section-title {
+    padding-bottom: 1rem;
+}
+
+#profile-img {
+    /* width: 75%; */
+    width: 100%;
+}
+
+#short-description {
+    font-size: 2rem;
+    padding-bottom: 5rem;
+}
+
+#about-me {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+#about-me::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 100%;
+    background-color: var(--off-white);
+    z-index: -1;
+}
+
+#long-description {
+    position: relative;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    text-align: center;
+}
+#long-description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    right: 40%;
+    height: 2px;
+    background-color: var(--foreground-light);
+}
+

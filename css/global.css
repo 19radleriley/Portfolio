@@ -51,7 +51,7 @@ body {
 }
 
 a.link {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--foreground-light);
     transition: var(--color-transition);
 }

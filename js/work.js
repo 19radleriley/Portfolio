@@ -22,10 +22,11 @@ personalWork = [
     new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
     new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
     new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
-    new Thumbnail("Jordan", "./assets/images/personal-work/MJ.jpg", null, "portrait"),
-    new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
-    new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
-    new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
+    new Thumbnail("Mini-Shoes", "./assets/images/personal-work/mini-shoes.jpg", null, "portrait"),
+    // new Thumbnail("Jordan", "./assets/images/personal-work/MJ.jpg", null, "portrait"),
+    // new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
+    // new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
+    // new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
 ];
 
 // Fires on page load

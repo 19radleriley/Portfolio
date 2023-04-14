@@ -1,5 +1,5 @@
 #about {
-    max-width: 800px;
+    max-width: 798px;
     margin: auto;
 }
 
@@ -8,75 +8,90 @@
 }
 
 .section-title {
-    font-size: 3rem;
-    line-height: 3rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
-}
-
-#about > section:nth-child(even) > .section-title {
-    text-align: right;
-}
-
-#intro > .section-title {
-    padding-bottom: 1rem;
-    margin-bottom: 0;
 }
 
 #profile-img {
     width: 100%;
 }
 
-#short-description {
-    font-size: 2rem;
-    padding-bottom: 5rem;
-}
-
-#about-me {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+#description {
     position: relative;
-}
-
-#about-me::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background-color: var(--off-white);
-    z-index: -1;
-}
-
-#long-description {
-    position: relative;
+    margin-top: 3rem;
     padding-top: 2rem;
-    padding-bottom: 2rem;
-    font-size: 1.5rem;
-    line-height: 3rem;
-    text-align: center;
+    font-size: 1.25rem;
+    line-height: 2.5rem;
 }
-#long-description::before {
+
+#description::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 40%;
-    right: 40%;
-    height: 2px;
+    left: 0;
+    right: 75%;
+    bottom: 100%;
+    height: 1px;
     background-color: var(--foreground-light);
 }
 
 #history-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
 }
 
-.history-item {
-    outline: 1px solid var(--foreground-dark);
-    width: 400px;
-    aspect-ratio: 3/4;
-    background-color: var(--off-white);
+/* Normal history-item */
+
+.history-item > .thumbnail {
+    width: 100%;
+    display: block;
 }
 
+.history-item > .more-info {
+    display: none;
+}
+
+/* Expanded history-item */
+
+.history-item.expanded {
+    display: flex;
+}
+
+.history-item.expanded > .thumbnail {
+    width: 33%;
+}
+
+.history-item.expanded > .more-info {
+    display: block;
+}
+
+@media (max-width: 800px) {
+   #about {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+   } 
+
+    .history-item.expanded {
+        display: block;
+        position: relative;
+    }
+
+    .history-item.expanded > .thumbnail {
+        width: 100%;
+    }
+
+    .history-item.expanded > .more-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        backdrop-filter: blur(5px) brightness(.5);
+    }
+}
+
+/* 534 is the magic number where we break to single column for history grid */
+@media (max-width: 650px) {
+
+
+    
+}

@@ -47,7 +47,7 @@
     display: block;
 }
 
-.history-item > .more-info {
+.history-item > .more-info-container {
     display: none;
 }
 
@@ -55,6 +55,8 @@
 
 .history-item.expanded {
     display: flex;
+    position: relative;
+    overflow: hidden;
 }
 
 .history-item.expanded > .thumbnail {
@@ -62,8 +64,27 @@
     height: fit-content;
 }
 
-.history-item.expanded > .more-info {
+.history-item.expanded > .more-info-container {
     display: block;
+    width: 100%;
+    padding-left: 1rem;
+}
+
+.history-item.expanded .back {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border: 2px solid var(--foreground-dark);
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--foreground-dark);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.history-title {
+    margin-bottom: 2rem;
 }
 
 @media (max-width: 800px) {
@@ -75,6 +96,7 @@
     .history-item.expanded {
         display: block;
         position: relative;
+        color: var(--off-white);
     }
 
     .history-item.expanded > .thumbnail {
@@ -82,7 +104,8 @@
         height: auto;
     }
 
-    .history-item.expanded > .more-info {
+    .history-item.expanded > .more-info-container {
+        padding-left: 0;
         position: absolute;
         top: 0;
         left: 0;
@@ -91,11 +114,12 @@
         backdrop-filter: blur(5px) brightness(.5);
         -webkit-backdrop-filter: blur(5px) brightness(.5);
     }
-}
+    .history-item.expanded .more-info {
+        padding: 4rem;
+    }
 
-/* 534 is the magic number where we break to single column for history grid */
-@media (max-width: 650px) {
-
-
-    
+    .history-item.expanded .back {
+        border-color: var(--off-white);
+        color: var(--off-white);
+    }
 }

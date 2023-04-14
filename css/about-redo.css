@@ -58,6 +58,7 @@
 
 .history-item.expanded > .thumbnail {
     width: 33%;
+    height: fit-content;
 }
 
 .history-item.expanded > .more-info {

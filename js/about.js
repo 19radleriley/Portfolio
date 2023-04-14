@@ -4,6 +4,7 @@ $(() => {
         $("#history-grid").fadeToggle(300, () => {
             var clone = $(this).clone();
             $("#history").append(clone.addClass("expanded").css("display", "none"));
+            $(".history-item.expanded .thumbnail-title").remove();
             $(".history-item.expanded .thumbnail").removeClass("hoverable");
             clone.fadeToggle(300);
             var moreInfo = $(".history-item.expanded");

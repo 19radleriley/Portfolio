@@ -3,7 +3,6 @@ $(() => {
     $(".history-item").on("click", (event) => {
         var rect = event.target.getBoundingClientRect();
         toCenter(event.target, rect.top, rect.left, rect.width, rect.height);
-
     });
 
 });
@@ -26,7 +25,7 @@ function toCenter(elem, top, left, width, height) {
 
         var numColumns = getComputedStyle(document.querySelector("#history-grid"))
                             .getPropertyValue("grid-template-columns").split(" ").length;
-        var scaleFactor = numColumns == 1 ? 1 : 1.5;
+        var scaleFactor = numColumns == 1 ? 1 : 2;
 
         $(elem).css("opacity", 0);
         popup.css("transform", "translate(-50%, -50%)")

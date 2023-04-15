@@ -140,7 +140,7 @@
 .skill {
     position: relative;
     cursor: pointer;
-    perspective: 800px;
+    perspective: 1000px;
 }
 
 .skill.flipped .front{
@@ -154,18 +154,16 @@
     position: absolute;
     inset: 0 0 0 0;
     backface-visibility: hidden;
-    transition: transform 1s ease;
+    transition: transform .75s ease;
+    background-color: var(--off-white);
 }
 
 .front {
     display: block;
-    background-color: #f0f0f0;
 }
 
 .back {
     display: block;
-    background-color: #202020;
-    color: #f0f0f0;
 
     transform: rotateY(180deg);
 }

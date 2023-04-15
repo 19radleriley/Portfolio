@@ -1,9 +1,17 @@
 $(() => {
 
-    $(".history-item").on("click", (event) => {
-        var rect = event.target.getBoundingClientRect();
-        toCenter(event.target, rect.top, rect.left, rect.width, rect.height);
 
+    $(".history-item").on("click", (event) => {
+        var numColumns = getComputedStyle(document.querySelector("#history-grid"))
+            .getPropertyValue("grid-template-columns").split(" ").length;
+
+        if (numColumns > 1) {
+            var rect = event.target.getBoundingClientRect();
+            toCenter(event.target, rect.top, rect.left, rect.width, rect.height);
+        }
+        else {
+
+        }
     });
 
 });
@@ -29,6 +37,7 @@ function toCenter(elem, top, left, width, height) {
         var scaleFactor = numColumns == 1 ? 1 : 1.5;
 
         $(elem).css("opacity", 0);
+        $(elem.previousElementSibling).css("opacity", 0);
         popup.css("transform", "translate(-50%, -50%)")
              .css("top", "50%")
              .css("left", "50%");
@@ -68,9 +77,9 @@ function toOriginal(orig, width, height) {
         $("#about > *").css("opacity", 1).css("pointer-events", "all");
         $(".history-popup").css("opacity", 0);
         $(orig).css("opacity", 1);
+        $(orig.previousElementSibling).css("opacity", 1);
         setTimeout(() => {
             $(".history-popup").remove();
         }, 250);
     }, 250);
-
 }

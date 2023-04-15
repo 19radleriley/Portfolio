@@ -4,7 +4,13 @@
 }
 
 #about > * {
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
+
+    transition: opacity .25s ease;
+}
+
+#about > :nth-child(even) > .section-title {
+    text-align: right;
 }
 
 .section-title {
@@ -63,44 +69,66 @@
     font-size: 1rem;
     backdrop-filter: brightness(.25);
     -webkit-backdrop-filter: brightness(.25);
+    pointer-events: none;
 }
 
-.history-item > .more-info-container {
-    display: none;
-}
 
 /* Expanded history-item */
 
-.history-item.expanded {
-    display: flex;
+.history-popup {
+    position: fixed;
+    display: none;
+    transition: left .25s ease,
+                top .25s ease,
+                width .25s ease,
+                height .25s ease,
+                opacity .25s ease,
+                transform .25s ease; 
+    transform-origin: center;
 }
 
-.history-item.expanded > .thumbnail {
-    width: 50%;
-    height: fit-content;
+.history-popup > * {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
-.history-item.expanded > .more-info-container {
-    display: block;
+.history-popup img {
     width: 100%;
-    padding-left: 1rem;
+    filter: brightness(10%);
 }
 
-.history-item.expanded .back {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    border: 2px solid var(--foreground-dark);
-    border-radius: 0;
-    background-color: transparent;
-    color: var(--foreground-dark);
-    font-size: 1rem;
-    letter-spacing: 2px;
+.more-info-container {
+    display: none;
+}
+
+.more-info > * {
+    z-index: 100;
+}
+
+.more-info {
+    padding: 5rem;
+    color: var(--off-white);
 }
 
 .history-title {
+    font-size: 2rem;
     margin-bottom: 2rem;
+}
+
+.history-popup .close {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--off-white);
+    border: 1px solid var(--off-white);
+    border-radius: 0;
+    background-color: transparent;
 }
 
 #skills-grid {

@@ -43,7 +43,7 @@
 #history-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: .5rem;
+    gap: 1rem;
 }
 
 /* Normal history-item */
@@ -133,7 +133,7 @@
 
 #skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
 }
 
@@ -141,6 +141,10 @@
     position: relative;
     cursor: pointer;
     perspective: 1000px;
+}
+
+.skill svg {
+    fill: var(--foreground-dark);
 }
 
 .skill.flipped .front{
@@ -155,17 +159,28 @@
     inset: 0 0 0 0;
     backface-visibility: hidden;
     transition: transform .75s ease;
-    background-color: var(--off-white);
 }
 
 .front {
     display: block;
+    background-color: var(--off-white);
 }
 
 .back {
     display: block;
-
+    padding: 1rem;
     transform: rotateY(180deg);
+    background-color: var(--foreground-dark);
+    color: white;
+}
+
+.skill-title {
+    margin-bottom: 1rem;
+}
+
+.skill-details {
+    list-style: none;
+    font-size: 1.25rem;
 }
 
 @media (max-width: 800px) {

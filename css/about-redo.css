@@ -34,9 +34,9 @@
     content: "";
     position: absolute;
     left: 0;
-    right: 75%;
+    right: 90%;
     bottom: 100%;
-    height: 1px;
+    height: 2px;
     background-color: var(--foreground-light);
 }
 
@@ -66,7 +66,7 @@
     padding-top: .5rem;
     padding-bottom: .5rem;
     color: white;
-    font-size: 1rem;
+    font-size: 1.25rem;
     backdrop-filter: brightness(.25);
     -webkit-backdrop-filter: brightness(.25);
     pointer-events: none;
@@ -150,6 +150,7 @@
 .skill.flipped .front{
     transform: rotateY(-180deg);
 }
+
 .skill.flipped .back{
     transform: rotateY(0);
 }

@@ -9,13 +9,24 @@
     <!-- Personal Stylesheets -->
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/contact.css">
 
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
+    <!-- Email JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("EzZR37KBmDmJUZMzQ");
+        })();
+    </script>
 
     <!-- Personal Javascript -->
     <script src="./js/navbar.js"></script>
+    <script src="./js/contact.js"></script>
 </head>
 <body>
     <div id="backdrop-filter"></div>
@@ -44,7 +55,24 @@
     </nav>
 
     <main id="contact" class="page">
-        <h1 class="major-title">Let's Talk!</h1>
+        <!-- <div class="response-msg fail">Email sent! I look forward to getting back to you!</div> -->
+        <h1 class="major-title" id="cta">Let's Talk!</h1>
+
+        <form id="contact-form">
+            <input required type="email" name="" placeholder="Your Email" id="sender-email">
+            <input required type="text" name="" placeholder="Subject" id="subject">
+            <textarea required placeholder="Body" name="" id="body" cols="30" rows="10"></textarea>
+            <input type="submit" id="send" class="hoverable" value="Send">
+        </form>
+        <footer>
+            <nav class="footer-links">
+                <a class="footer-link link hoverable" target="_blank"
+                    href="https://www.linkedin.com/in/rileyradle/">LinkedIn</a>
+                <a class="footer-link link hoverable" target="_blank"
+                    href="https://www.instagram.com/riley11radle">Instagram</a>
+                <a class="footer-link link hoverable" target="_blank" href="https://github.com/19radleriley">GitHub</a>
+            </nav>
+        </footer>
     </main>
 </body>
 </html>

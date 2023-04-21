@@ -17,6 +17,14 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
+    <!-- Email js to request a resume -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("EzZR37KBmDmJUZMzQ");
+        })();
+    </script>
+
     <!-- Personal Javascript -->
     <script src="./js/navbar.js"></script>
     <script src="./js/about.js"></script>
@@ -54,10 +62,9 @@
         <section id="about-me">
             <h1 class="major-title section-title">About Riley Radle<br></h1>
             <img id="profile-img" src="./assets/images/about-me/profile-pic.jpg" alt="">
-            <p id="description">Riley is a versitile graphic designer and web developer. He specializes
-                in full stack web development, layout design, and digital illustration while also having experience in
-                branding and logo creation. Riley graduated from the University of Wisconsin La Crosse in 2023 with a
-                computer science major and art minor.</p>
+            <p id="description">I am a versitile graphic designer and web developer. Full stack web development, layout design, and digital illustration are my passions,
+                but I've also explored branding, logo creation, and several other niche skills. I graduated from the University of Wisconsin La Crosse in 2023 with a major in
+                computer science and an art minor.</p>
         </section>
 
         <section id="skills">
@@ -465,9 +472,17 @@
             </div>
         </section>
 
-        <section class="personal">
-            <h1 class="major-title section-title">More</h1>
+        <section id="resume">
+            <h1 class="major-title section-title">Request Resume</h1>
+            <form id="request-form">
+                <input required type="email" id="sender-email" placeholder="Your Email">
+                <input type="submit" id="request" class="hoverable" value="Request">
+            </form>
         </section>
+
+        <!-- <section class="personal">
+            <h1 class="major-title section-title">More</h1>
+        </section> -->
     </main>
     <footer>
         <nav class="footer-links">

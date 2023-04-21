@@ -1,0 +1,67 @@
+#contact {
+    box-sizing: border-box;
+    max-width: 650px;
+    margin: auto;
+}
+
+input,
+textarea {
+    font-family: "Karla", sans-serif;
+    color: var(--foreground-dark);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+#cta {
+    font-size: 2.5rem;
+}
+
+#contact-form {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#contact-form>* {
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: none;
+    background-color: var(--off-white);
+}
+
+#body {
+    resize: vertical;
+}
+
+#send {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.response-msg {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: .5rem;
+    margin-bottom: 2rem;
+}
+
+.response-msg.success {
+    background-color: var(--accent-color);
+}
+
+.response-msg.fail {
+    background-color: rgb(255, 110, 110);
+}
+
+@media (max-width: 650px) {
+    #contact {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+}

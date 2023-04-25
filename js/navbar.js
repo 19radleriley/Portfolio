@@ -14,7 +14,6 @@ $(() => {
         else {
             $("nav").attr("class", "nav-visible");
             $("#backdrop-filter").fadeIn();
-
             $("body").css("overflow", "hidden");
         }
     });

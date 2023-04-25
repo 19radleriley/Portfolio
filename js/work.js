@@ -13,18 +13,18 @@ clientWork = [
 ];
 
 personalWork = [
+    new Thumbnail("Clean Air", "./assets/images/personal-work/clean-air.jpg", null, "portrait"),
+    new Thumbnail("Rose", "./assets/images/personal-work/rose.jpg", null, "portrait"),
+    new Thumbnail("Mini-Shoes", "./assets/images/personal-work/mini-shoes.jpg", null, "portrait"),
     new Thumbnail("Jordan", "./assets/images/personal-work/MJ.jpg", null, "portrait"),
     new Thumbnail("Kobe", "./assets/images/personal-work/KB.jpg", null, "portrait"),
     new Thumbnail("Oktoberfest Button", "./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
-    new Thumbnail("Mini-Shoes", "./assets/images/personal-work/mini-shoes.jpg", null, "portrait"),
-    new Thumbnail("Rose", "./assets/images/personal-work/rose.jpg", null, "portrait"),
     new Thumbnail("Shoe", "./assets/images/personal-work/shoe.jpg", null, "portrait"),
     new Thumbnail("Posterzine", "./assets/images/personal-work/posterzine.jpg", null, "portrait"),
     new Thumbnail("Kobe", "./assets/images/personal-work/kobe.jpg", null, "portrait"),
     new Thumbnail("nike1", "./assets/images/personal-work/nike1.jpg", null, "landscape"),
     new Thumbnail("nike2", "./assets/images/personal-work/nike2.jpg", null, "landscape"),
     new Thumbnail("Spiderverse", "./assets/images/personal-work/spiderverse.GIF", null, "portrait"),
-    new Thumbnail("Doubt Me", "./assets/images/personal-work/Doubt-Me.jpg", null, "portrait"),
 ];
 
 // Fires on page load

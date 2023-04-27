@@ -34,7 +34,8 @@ $(() => {
     $(".gallery").hide();
 
     // Initially show the client work
-    addMasonryGridItems(clientWork, "#client-work");
+    // addMasonryGridItems(clientWork, "#client-work");
+    addMasonryGridItems(personalWork, "#personal-work");
 
     $(".filter.current").on("click", toggleWorkFilterDropdown);
     $("#filter-dropdown > *").on("click", updateWorkFilter);
@@ -113,6 +114,7 @@ const dropdownArrow = `
 <svg class="dropdown-arrow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"
 style="enable-background:new 0 0 50 50;" xml:space="preserve">
-<polygon points="40,23.8 40,17.5 10,17.5 10,23.8 25,42.5 " />
+<polygon points="35.1,32.7 35.1,28.4 14.9,28.4 14.9,32.7 25,45.2 " />
+<polygon points="25,4.8 14.9,17.3 14.9,21.6 35.1,21.6 35.1,17.3 " />
 </svg>
 `

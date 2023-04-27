@@ -2,14 +2,12 @@
     margin-right: var(--page-margin);
     margin-left: var(--page-margin);
     --row-height: 10px;
-    --filter-width: 185px;
 }
 
 #work-filter {
     display: flex;
     position: relative;
-    justify-content: right;
-    padding-right: var(--row-height);
+    width: fit-content;
 }
 
 .filter {
@@ -18,8 +16,10 @@
     padding-top: .5rem;
     padding-bottom: .5rem;
     background-color: var(--off-white);
-    width: var(--filter-width);
     font-size: 1rem;
+    font-family: "Jost";
+    text-transform: uppercase;
+    color: var(--foreground-light);
 }
 
 .filter.current {
@@ -28,23 +28,31 @@
     align-items: center;
     padding-top: .25rem;
     padding-bottom: .25rem;
-    font-size: 1.5rem;
-    color: white;
-    background-color: var(--accent-color);
+    font-size: 2rem;
+    /* color: white; */
+    /* background-color: var(--accent-color); */
+    color: var(--foreground-dark);
+    background-color: transparent;
 }
 
 #filter-dropdown {
     list-style: none;
     position: absolute;
     top: 100%;
+    right: 0;
     z-index: 10;
     display: none;
 }
 
+#filter-dropdown > .filter:not(:last-child) {
+    border-bottom: 2px solid var(--foreground-light);
+}
+
 .dropdown-arrow {
-    width: 1rem;
-    height: 1rem;
-    fill: white;
+    width: 1.1rem;
+    height: 1.1rem;
+    padding-left: .25rem;
+    fill: var(--foreground-dark);
 }
 
 /* #work-selector {
@@ -72,8 +80,12 @@
 
 #personal-work {
     /* Start by only showing client work */
-    display: none;
+    /* display: none; */
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+#client-work {
+    display: none;
 }
 
 @media (max-width: 1100px) {

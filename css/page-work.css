@@ -1,9 +1,53 @@
 #work {
     margin-right: var(--page-margin);
     margin-left: var(--page-margin);
+    --row-height: 10px;
+    --filter-width: 185px;
 }
 
-#work-selector {
+#work-filter {
+    display: flex;
+    position: relative;
+    justify-content: right;
+    padding-right: var(--row-height);
+}
+
+.filter {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: var(--off-white);
+    width: var(--filter-width);
+    font-size: 1rem;
+}
+
+.filter.current {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--accent-color);
+}
+
+#filter-dropdown {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.dropdown-arrow {
+    width: 1rem;
+    height: 1rem;
+    fill: white;
+}
+
+/* #work-selector {
     display: flex;
     z-index: 5;
     text-align: center;
@@ -24,13 +68,12 @@
 .work-type.selected {
     color: var(--accent-color);
     border-color: var(--accent-color);
-}
+} */
 
 #personal-work {
     /* Start by only showing client work */
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-
 }
 
 @media (max-width: 1100px) {
@@ -40,11 +83,11 @@
 }
 
 @media (max-width: 650px) {
-    #work-selector {
+    /* #work-selector {
         width: auto;
         position: sticky;
         top: 0;
-    }
+    } */
 
     #personal-work {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));

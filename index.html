@@ -27,8 +27,8 @@
 
     <!-- Personal Javascript -->
     <script src="./js/navbar.js"></script>
-    <script src="./js/page-work.js"></script>
     <script src="./js/masonry-grid.js"></script>
+    <script src="./js/page-work.js"></script>
     <script src="./js/gallery.js"></script>
 </head>
 
@@ -38,8 +38,9 @@
     <nav class="nav-hidden">
         <a href="./index.html"><img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt=""></a>
 
-        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 100 75" style="enable-background:new 0 0 100 75;" xml:space="preserve">
+        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 75"
+            style="enable-background:new 0 0 100 75;" xml:space="preserve">
             <g id="Isolation_Mode">
                 <g>
                     <rect class="hamburger-line top" width="100" height="10" />
@@ -60,10 +61,23 @@
     </nav>
 
     <main id="work" class="page">
-        <div id="work-selector">
+        <div id="work-filter">
+            <div class="filter current hoverable">Client Designs
+                <svg class="dropdown-arrow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"
+                    style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <polygon points="40,23.8 40,17.5 10,17.5 10,23.8 25,42.5 " />
+                </svg>
+            </div>
+            <ul id="filter-dropdown">
+                <li class="filter hoverable">Development</li>
+                <li class="filter hoverable">Personal Work</li>
+            </ul>
+        </div>
+        <!-- <div id="work-selector">
             <h1 id="client-title" class="work-type hoverable selected">Selected</h1>
             <h1 id="personal-title" class="work-type hoverable">Just Me</h1>
-        </div>
+        </div> -->
 
         <!-- Fill the grids with javascript -->
         <section class="masonry-grid" id="client-work">
@@ -77,10 +91,13 @@
 
     <footer>
         <nav class="footer-links">
-            <a class="footer-link link hoverable" target="_blank" href="https://www.linkedin.com/in/rileyradle/">LinkedIn</a>
-            <a class="footer-link link hoverable" target="_blank" href="https://www.instagram.com/riley11radle">Instagram</a>
+            <a class="footer-link link hoverable" target="_blank"
+                href="https://www.linkedin.com/in/rileyradle/">LinkedIn</a>
+            <a class="footer-link link hoverable" target="_blank"
+                href="https://www.instagram.com/riley11radle">Instagram</a>
             <a class="footer-link link hoverable" target="_blank" href="https://github.com/19radleriley">GitHub</a>
         </nav>
     </footer>
 </body>
+
 </html>

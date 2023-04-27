@@ -43,22 +43,6 @@ textarea:focus {
     color: white;
 }
 
-.response-msg {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    padding: .5rem;
-    margin-bottom: 2rem;
-}
-
-.response-msg.success {
-    background-color: var(--accent-color);
-}
-
-.response-msg.fail {
-    background-color: rgb(255, 110, 110);
-}
-
 @media (max-width: 650px) {
     #contact {
         padding-left: var(--page-margin);

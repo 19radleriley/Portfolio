@@ -1,57 +1,72 @@
-class Thumbnail {
-    constructor(imageLocation, externalLink, orientation, altText) {
-        this.imageLocation = imageLocation;
-        this.externalLink = externalLink;
-        this.orientation = orientation;
-        this.altText = altText;
-    }
-}
 
-clientWork = [
-    new Thumbnail("./assets/images/client-work/artsfest/thumbnail.png", "./artsfest.html", "landscape"),
-    new Thumbnail("./assets/images/client-work/cba/thumbnail.jpg", "./cba.html", "landscape"),
-];
 
-personalWork = [
-    new Thumbnail("./assets/images/personal-work/clean-air.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/rose.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/mini-shoes.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/MJ.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/KB.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/Oktoberfest-Button.jpg", null, "landscape"),
-    new Thumbnail("./assets/images/personal-work/shoe.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/posterzine.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/kobe.jpg", null, "portrait"),
-    new Thumbnail("./assets/images/personal-work/nike1.jpg", null, "landscape"),
-    new Thumbnail("./assets/images/personal-work/nike2.jpg", null, "landscape"),
-    new Thumbnail("./assets/images/personal-work/spiderverse.GIF", null, "portrait"),
-];
+// ========== Fires on page load ==========
 
-// Fires on page load
 $(() => {
     // Hide things that initially shouldn't be displayed
     // Doing this so we can have gallery container auto to 'flex' display
-    $(".gallery").hide();
+    // $(".gallery").hide();
 
-    // Initially show the client work
-    // addMasonryGridItems(clientWork, "#client-work");
-    addMasonryGridItems(personalWork, "#personal-work");
+    var currentFilterTag = setupWorkFilter();
+    var filteredWork = filterWork(currentFilterTag, work);
 
+    var masonryGrid = new MasonryGrid();
+    masonryGrid.setLocation(".masonry-grid")
+               .addItems(filteredWork);
+
+    // On click event handlers for filter
+    $("#filter-dropdown > *").on("click", e => updateWorkFilter(e, masonryGrid));
     $(".filter.current").on("click", toggleWorkFilterDropdown);
-    $("#filter-dropdown > *").on("click", updateWorkFilter);
 
-    // $("#client-title").click(updateWorkType);
-    // $("#personal-title").click(updateWorkType);
-
-    $(".gallery").click(closeGallery);
+    // $(".gallery").click(closeGallery);
 });
 
-function updateWorkFilter() {
-    console.dir(this);
-    var temp = this.innerText;
-    this.innerText = $(".filter.current").text().trim();
-    $(".filter.current").text(temp);
-    $(".filter.current").append($(dropdownArrow));
+// ========== Filter Functionality ==========
+
+function setupWorkFilter() {
+    var first = null;
+    for (const key in workTypes) {
+        if (!first) {
+            first = workTypes[key].tag;
+            $(".filter.current").append(workTypes[key].name);
+            $(".filter.current").append(dropdownArrow);
+            $(".filter.current").attr("id", first);
+
+            // Set id of masonry grid
+            $(".masonry-grid").attr("id", `${first}-work`);
+        }
+        else {
+            $("#filter-dropdown")
+                .append($(`<li>${workTypes[key].name}</li>`)
+                            .attr("class", "filter hoverable")
+                            .attr("id", workTypes[key].tag));
+        }
+    }
+
+    return first;
+}
+
+function filterWork(filter, work) {
+    return work.filter(w => w.tags.includes(filter));
+}
+
+function updateWorkFilter(event, masonryGrid) {
+    var newCurrent = event.target.innerText;
+    var newCurrentTag = event.target.id;
+
+    var current = $(".filter.current");
+    event.target.innerText = current.text().trim();
+    event.target.id = current.attr("id");
+    current.text(newCurrent);
+    current.attr("id", newCurrentTag);
+    current.append($(dropdownArrow));
+
+    // Set id of masonry grid
+    $(".masonry-grid").attr("id", `${newCurrentTag}-work`);
+
+    var filteredWork = filterWork(newCurrentTag, work);
+    masonryGrid.removeAllItems();
+    masonryGrid.addItems(filteredWork);
 
     // Rehide the dropdown
     updateFilterClickOff();
@@ -81,34 +96,21 @@ function clickOffFilter(e) {
     }
 }
 
-// function updateWorkType() {
-//     if (!this.className.includes("selected")) {
-//         $(".work-type.selected").attr("class", "work-type hoverable");
-//         this.className = "work-type hoverable selected";
+// =============== Globals and Classes ===============
 
-//         // Hide / show the corresponding work section
-//         if (this.id == "client-title") {
-//             $("#client-work").css("display", "grid");
-//             $("#personal-work").css("display", "none");
+class WorkType {
+    constructor(name, tag) {
+        this.name = name;
+        this.tag = tag;
+    }
+}
 
-//             addMasonryGridItems(clientWork, "#client-work");
-//             $("#personal-work > *").remove();
-//         }
-//         else {
-//             $("#client-work").css("display", "none");
-//             $("#personal-work").css("display", "grid");
+const workTypes = {
+    client : new WorkType("Client Designs", "client"),
+    development : new WorkType("Development", "development"),
+    personal : new WorkType("Personal Work", "personal")
+}
 
-//             addMasonryGridItems(personalWork, "#personal-work");
-//                  // Add the functionality for gallery mode
-//             $("#client-work > *").remove();
-
-//             $(`#personal-work .masonry-grid-item`).click(function() {
-//                 var orientation = this.className.includes("landscape") ? "landscape" : "portrait";
-//                 startGallery(this.src, this.id, orientation);
-//             });
-//         }
-//     }
-// }
 
 const dropdownArrow = `
 <svg class="dropdown-arrow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -118,3 +120,41 @@ style="enable-background:new 0 0 50 50;" xml:space="preserve">
 <polygon points="25,4.8 14.9,17.3 14.9,21.6 35.1,21.6 35.1,17.3 " />
 </svg>
 `
+
+const work = [
+    // ==================== Client ==================== 
+    new MasonryGridItem().setImage("./assets/images/client-work/artsfest/thumbnail.png")
+                         .setLink("./artsfest.html")
+                         .addTag(workTypes.client.tag),
+    new MasonryGridItem().setImage("./assets/images/client-work/cba/thumbnail.jpg")
+                         .setLink("./cba.html")
+                         .addTag(workTypes.client.tag),
+
+    // ==================== Development ==================== 
+
+    // ==================== Personal ==================== 
+    new MasonryGridItem().setImage("./assets/images/personal-work/clean-air.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/rose.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/mini-shoes.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/MJ.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/KB.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/Oktoberfest-Button.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/shoe.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/posterzine.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/kobe.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/nike1.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/nike2.jpg")
+                         .addTag(workTypes.personal.tag),
+    new MasonryGridItem().setImage("./assets/images/personal-work/spiderverse.GIF")
+                         .addTag(workTypes.personal.tag),
+]

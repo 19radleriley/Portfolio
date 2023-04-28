@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-auto-rows: var(--row-height);
-    margin: 3rem 0;
+    margin: 2rem 0;
     animation: fade 1s ease forwards;
 }
 

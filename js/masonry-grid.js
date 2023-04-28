@@ -1,52 +1,92 @@
-function addMasonryGridItems(items, selector) {
-    for (var i = 0; i < items.length; i++) {
-         if (items == clientWork) {
-             var a = document.createElement("a");
-             a.setAttribute("href", items[i].externalLink);
-             a.setAttribute("class", "masonry-grid-item-container");
-             var img = document.createElement("img");
-             img.setAttribute("src", items[i].imageLocation);
-             img.setAttribute("class", `masonry-grid-item ${items[i].orientation} hoverable`);
- 
-             a.appendChild(img);
-             document.querySelector(selector).appendChild(a);
-         }
- 
-         else {
-             var div = document.createElement("div");
-             div.setAttribute("class", "masonry-grid-item-container");
-             var img = document.createElement("img");
-             img.setAttribute("src", items[i].imageLocation);
-             img.setAttribute("class", `masonry-grid-item ${items[i].orientation} hoverable`);
-             img.setAttribute("id", `masonry-grid-item-${i}`);
-             div.appendChild(img);
-             document.querySelector(selector).appendChild(div);
-         }
-     }
- 
-     // After the items have been added, set the heights 
-     // of the rows to create a masonry grid
-     document.querySelectorAll(`${selector} .masonry-grid-item-container`).forEach(t => {
-         t.firstChild.addEventListener("load", () => {
-             setGridRowHeight(t, t.firstChild);
-         });
-     });
- 
-     // Remove any potential events on the window
-     // And then add one to resize grid on window resize
-     $(window).off();
-     $(window).on("resize", () => {
-         setGridRowHeightAll(selector);
-     });
+class MasonryGridItem {
+    constructor() {
+        ("In constructor");
+        this.container = document.createElement("div");
+        this.container.setAttribute("class", "masonry-grid-item-container");
+        this.tags = [];
+    }
+
+    setImage(src) {
+        this.img = document.createElement("img");
+        this.img.setAttribute("src", src);
+        this.img.setAttribute("class", "masonry-grid-item");
+        if (this.a) {
+            this.a.appendChild(this.img);
+            this.container.appendChild(this.a);
+        }
+        else {
+            this.container.appendChild(this.img);
+        }
+        return this;
+    }
+
+    setLink(href) {
+        this.a = document.createElement("a");
+        this.a.setAttribute("href", href);
+        if (this.img) {
+            this.container.removeChild(this.img);
+            this.a.appendChild(this.img);
+        }
+        this.container.appendChild(this.a);
+        return this;
+    }
+
+    addTag(tag) {
+        this.tags.push(tag); 
+        return this;
+    }
 }
 
-function setGridRowHeight(container, masonryGridItem) {
-    var rows = masonryGridItem.height / 10;
-    container.setAttribute("style", `grid-row-end: span ${Math.floor(rows) + 1}`);
-}
+class MasonryGrid {
+    constructor() {
+        this.firstTime = true;
+    }
 
-function setGridRowHeightAll(selector) {
-    document.querySelectorAll(`${selector} .masonry-grid-item-container`).forEach(t => {
-        setGridRowHeight(t, t.firstChild);
-    });
+    setLocation(location) {
+        this.location = location;
+        return this;
+    }
+
+    addItems(items) {
+        items.forEach(i => {
+            document.querySelector(this.location).appendChild(i.container);
+        });
+
+        // Set the heights of the items
+        // Need to wait the first time in case images aren't loaded yet
+        this.setItemRowHeightsAll(this.firstTime);
+        this.firstTime = false;
+
+        // Remove any potential events on the window
+        // And then add one to resize items on window resize
+        $(window).off();
+        $(window).on("resize", () => {
+            this.setItemRowHeightsAll(false);
+        });
+    }
+
+    removeAllItems() {
+        document.querySelectorAll(`${this.location} > *`).forEach(e => {
+            e.remove();
+        });
+    }
+
+    setItemRowHeightsAll(wait) {
+        document.querySelectorAll(`${this.location} .masonry-grid-item`).forEach(t => {
+            var container = t.closest(".masonry-grid-item-container");
+            if (wait) {
+                t.addEventListener("load", () => {
+                    this.setItemRowHeight(container, t);
+                });
+            } 
+            else {
+                this.setItemRowHeight(container, t);
+            }
+        });
+    }
+
+    setItemRowHeight(container, masonryGridItem) {
+        var rows = masonryGridItem.height / 10;
+        container.setAttribute("style", `grid-row-end: span ${Math.floor(rows) + 1}`);
+    }
 }

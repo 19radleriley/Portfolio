@@ -16,7 +16,7 @@
     padding-top: .5rem;
     padding-bottom: .5rem;
     background-color: var(--off-white);
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-family: "Jost";
     text-transform: uppercase;
     color: var(--foreground-light);
@@ -24,13 +24,11 @@
 
 .filter.current {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: .25rem;
-    padding-bottom: .25rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--row-height);
     font-size: 2rem;
-    /* color: white; */
-    /* background-color: var(--accent-color); */
     color: var(--foreground-dark);
     background-color: transparent;
 }
@@ -38,7 +36,7 @@
 #filter-dropdown {
     list-style: none;
     position: absolute;
-    top: 100%;
+    top: 105%;
     right: 0;
     z-index: 10;
     display: none;
@@ -55,52 +53,47 @@
     fill: var(--foreground-dark);
 }
 
-/* #work-selector {
-    display: flex;
-    z-index: 5;
-    text-align: center;
-    width: 25%;
-    margin: 0 auto;
-    background-color: white;
-}
-
-.work-type {
-    width: 50%;
-    padding: .5rem 0;
-    border-bottom: 5px solid var(--off-white);
-    font-size: 1rem;
-    color: var(--off-white);
-    transition: var(--color-transition), var(--border-transition);
-}
-
-.work-type.selected {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-} */
-
 #personal-work {
     /* Start by only showing client work */
-    /* display: none; */
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
-#client-work {
-    display: none;
-}
+@media (max-width: 770px) {
+    #work-filter {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position: sticky;
+        top: 0;
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+        background-color: white;
+        opacity: 95%;
+    }
 
-@media (max-width: 1100px) {
-    #work-selector {
-        width: 50%;
+    .filter {
+        font-size: 2rem;
+        background-color: transparent;
+        text-align: center;
+    }
+
+    .filter.current {
+        padding-left: 1rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    #filter-dropdown {
+        position: static;
+    }
+
+    #filter-dropdown > .filter:not(:last-child) {
+        border-bottom: none;
     }
 }
 
 @media (max-width: 650px) {
-    /* #work-selector {
-        width: auto;
-        position: sticky;
-        top: 0;
-    } */
-
     #personal-work {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }

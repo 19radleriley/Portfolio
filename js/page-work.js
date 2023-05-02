@@ -19,6 +19,7 @@ $(() => {
     $(".filter.current").on("click", toggleWorkFilterDropdown);
 
     // $(".gallery").click(closeGallery);
+
 });
 
 // ========== Filter Functionality ==========

@@ -1,6 +1,5 @@
 class MasonryGridItem {
     constructor() {
-        ("In constructor");
         this.container = document.createElement("div");
         this.container.setAttribute("class", "masonry-grid-item-container");
         this.tags = [];
@@ -52,8 +51,8 @@ class MasonryGrid {
             document.querySelector(this.location).appendChild(i.container);
         });
 
-        // Set the heights of the items
-        // Need to wait the first time in case images aren't loaded yet
+        // // Set the heights of the items
+        // // Need to wait the first time in case images aren't loaded yet
         this.setItemRowHeightsAll(this.firstTime);
         this.firstTime = false;
 
@@ -71,22 +70,45 @@ class MasonryGrid {
         });
     }
 
-    setItemRowHeightsAll(wait) {
-        document.querySelectorAll(`${this.location} .masonry-grid-item`).forEach(t => {
-            var container = t.closest(".masonry-grid-item-container");
-            if (wait) {
-                t.addEventListener("load", () => {
-                    this.setItemRowHeight(container, t);
-                });
-            } 
-            else {
-                this.setItemRowHeight(container, t);
-            }
+    temp(items) {
+        items.forEach(item => {
+            console.log(item);
+
         });
     }
 
+    setItemRowHeightsAll(wait) {
+        document.querySelectorAll(`${this.location} .masonry-grid-item`).forEach(t => {
+            var container = t.closest(".masonry-grid-item-container");
+            // if (wait) {
+            // console.log("I happen");
+                // t.addEventListener("load", () => {
+                //     this.setItemRowHeight(container, t);
+                // });
+            // } 
+            // else {
+
+            this.waitForElementHeight(t, () => {
+                this.setItemRowHeight(container, t);
+            });
+
+                // this.setItemRowHeight(container, t);
+            // }
+        });
+    }
+
+    waitForElementHeight(element, callback) {
+        if (element.clientHeight !== 0) {
+            console.log(element);
+            console.log("Is ready");
+            callback();
+        } else {
+            window.requestAnimationFrame(() => this.waitForElementHeight(element, callback));
+        }
+    }
+
     setItemRowHeight(container, masonryGridItem) {
-        var rows = masonryGridItem.height / 10;
+        var rows = masonryGridItem.clientHeight / 10;
         container.setAttribute("style", `grid-row-end: span ${Math.floor(rows) + 1}`);
     }
 }

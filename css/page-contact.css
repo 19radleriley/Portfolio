@@ -10,7 +10,11 @@ textarea {
     color: var(--foreground-dark);
 }
 
-input:focus,
+/*
+ Disinclude the submit button because 
+ it should have an outline when tabbed onto
+*/
+input:not([type="submit"]:focus),
 textarea:focus {
     outline: none;
 }

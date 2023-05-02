@@ -1,3 +1,12 @@
+.masonry-grid :focus-visible {
+    outline: none;
+    padding: 0;
+}
+
+.masonry-grid :focus-visible .masonry-grid-item {
+    filter: brightness(.6);
+}
+
 .masonry-grid {
     --row-height: 10px;
     display: grid;

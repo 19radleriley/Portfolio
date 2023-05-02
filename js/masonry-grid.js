@@ -5,6 +5,12 @@ class MasonryGridItem {
         this.tags = [];
     }
 
+    setAltText(txt) {
+        this.txt = txt;
+        this.img.setAttribute("alt", txt);
+        return this;
+    }
+
     setImage(src) {
         this.img = document.createElement("img");
         this.img.setAttribute("src", src);
@@ -51,16 +57,11 @@ class MasonryGrid {
             document.querySelector(this.location).appendChild(i.container);
         });
 
-        // // Set the heights of the items
-        // // Need to wait the first time in case images aren't loaded yet
         this.setItemRowHeightsAll(this.firstTime);
-        this.firstTime = false;
 
-        // Remove any potential events on the window
-        // And then add one to resize items on window resize
         $(window).off();
         $(window).on("resize", () => {
-            this.setItemRowHeightsAll(false);
+            this.setItemRowHeightsAll();
         });
     }
 
@@ -70,37 +71,19 @@ class MasonryGrid {
         });
     }
 
-    temp(items) {
-        items.forEach(item => {
-            console.log(item);
-
-        });
-    }
-
-    setItemRowHeightsAll(wait) {
+    setItemRowHeightsAll() {
         document.querySelectorAll(`${this.location} .masonry-grid-item`).forEach(t => {
             var container = t.closest(".masonry-grid-item-container");
-            // if (wait) {
-            // console.log("I happen");
-                // t.addEventListener("load", () => {
-                //     this.setItemRowHeight(container, t);
-                // });
-            // } 
-            // else {
 
             this.waitForElementHeight(t, () => {
                 this.setItemRowHeight(container, t);
             });
-
-                // this.setItemRowHeight(container, t);
-            // }
         });
     }
 
+    // Wait for browser to fully render the image
     waitForElementHeight(element, callback) {
         if (element.clientHeight !== 0) {
-            console.log(element);
-            console.log("Is ready");
             callback();
         } else {
             window.requestAnimationFrame(() => this.waitForElementHeight(element, callback));

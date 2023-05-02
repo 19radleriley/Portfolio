@@ -30,6 +30,17 @@
     --border-transition: border-color .25s ease;
 }
 
+::selection {
+    background-color: var(--foreground-dark);
+    color: white;
+}
+
+:focus-visible {
+    outline: 2px solid var(--foreground-dark);
+    border-radius: 0;
+    padding: .5rem;
+}
+
 body {
     font-family: "Karla", sans-serif;
     color: var(--foreground-dark);

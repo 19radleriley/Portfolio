@@ -3,10 +3,6 @@
 // ========== Fires on page load ==========
 
 $(() => {
-    // Hide things that initially shouldn't be displayed
-    // Doing this so we can have gallery container auto to 'flex' display
-    // $(".gallery").hide();
-
     var currentFilterTag = setupWorkFilter();
     var filteredWork = filterWork(currentFilterTag, work);
 
@@ -15,10 +11,23 @@ $(() => {
                .addItems(filteredWork);
 
     // On click event handlers for filter
-    $("#filter-dropdown > *").on("click", e => updateWorkFilter(e, masonryGrid));
-    $(".filter.current").on("click", toggleWorkFilterDropdown);
+    $("#filter-dropdown > *").on("click keydown", e => {
+        // For accessibility, only call function if enter key pressed
+        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
+            updateWorkFilter(e, masonryGrid)
+        }
+    });
+    $(".filter.current").on("click keydown", e => {
+        // For accessibility, only call function if enter key pressed
+        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
+            toggleWorkFilterDropdown();
+        }
+    });
 
-    // $(".gallery").click(closeGallery);
+    // // Make our personal work a gallery
+    // $("#personal").on("click", () => {
+
+    // });
 
 });
 
@@ -26,12 +35,14 @@ $(() => {
 
 function setupWorkFilter() {
     var first = null;
+    var i = 0;
     for (const key in workTypes) {
         if (!first) {
             first = workTypes[key].tag;
             $(".filter.current").append(workTypes[key].name);
             $(".filter.current").append(dropdownArrow);
             $(".filter.current").attr("id", first);
+            $(".filter.current").attr("tabindex", i);
 
             // Set id of masonry grid
             $(".masonry-grid").attr("id", `${first}-work`);
@@ -40,7 +51,8 @@ function setupWorkFilter() {
             $("#filter-dropdown")
                 .append($(`<li>${workTypes[key].name}</li>`)
                             .attr("class", "filter hoverable")
-                            .attr("id", workTypes[key].tag));
+                            .attr("id", workTypes[key].tag)
+                            .attr("tabindex", i));
         }
     }
 
@@ -54,12 +66,15 @@ function filterWork(filter, work) {
 function updateWorkFilter(event, masonryGrid) {
     var newCurrent = event.target.innerText;
     var newCurrentTag = event.target.id;
+    var newCurrentTabIndex = event.target.tabIndex;
 
     var current = $(".filter.current");
     event.target.innerText = current.text().trim();
     event.target.id = current.attr("id");
+    event.target.tabIndex = current.attr("tabindex");
     current.text(newCurrent);
     current.attr("id", newCurrentTag);
+    current.attr("tabindex", newCurrentTabIndex);
     current.append($(dropdownArrow));
 
     // Set id of masonry grid
@@ -126,36 +141,50 @@ const work = [
     // ==================== Client ==================== 
     new MasonryGridItem().setImage("./assets/images/client-work/artsfest/thumbnail.png")
                          .setLink("./artsfest.html")
-                         .addTag(workTypes.client.tag),
+                         .addTag(workTypes.client.tag)
+                         .setAltText("This is the thumbnail for my 'ArtsFest' case study. It's image of me holding a poster I created for an art fest where there are two hands embracing in the middle."),
     new MasonryGridItem().setImage("./assets/images/client-work/cba/thumbnail.jpg")
                          .setLink("./cba.html")
-                         .addTag(workTypes.client.tag),
+                         .addTag(workTypes.client.tag)
+                         .setAltText("This is the thumbnail for my 'CBA' case study. It's a concept image of the a logo I created for the College of Business adnimistration at the University of Wisconsin La Crosse depicting a simplified representation of their building over top of the text 'College of Business Administration'."),
 
     // ==================== Development ==================== 
 
     // ==================== Personal ==================== 
     new MasonryGridItem().setImage("./assets/images/personal-work/clean-air.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a digital drawing of a Nike shoe I did for Earth Day. Surrounding the shoe are the words 'Keep our air clean'."),
     new MasonryGridItem().setImage("./assets/images/personal-work/rose.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a digital drawing of a rose. The rose is depicted growing through a piece of concrete to symbolize the tenacicity and perseverance."),
     new MasonryGridItem().setImage("./assets/images/personal-work/mini-shoes.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a mini colored pencil drawing I did of three different shoes. Each is about 1 to 2 inches in size"),
     new MasonryGridItem().setImage("./assets/images/personal-work/MJ.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a semi-realistic colored pencil drawing I did of Michel Jordan."),
     new MasonryGridItem().setImage("./assets/images/personal-work/KB.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a semi-realistic colored pencil drawing I did of Kobe Bryant."),
     new MasonryGridItem().setImage("./assets/images/personal-work/Oktoberfest-Button.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a button design I made for Oktoberfest in the town I went to college in. It depicts two cartoon people drinking together beneath the slogan '2023 Come Fest With Me'"),
     new MasonryGridItem().setImage("./assets/images/personal-work/shoe.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is an image of me holding a pair of Nike shoes I painted for a friend. They depict a beach sunset with palmtrees in the foreground."),
     new MasonryGridItem().setImage("./assets/images/personal-work/posterzine.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is the front of a poster I did for a graphic design class my senior year of college. It depicts Alexander the Great as if he were a neon sign in front of the saying 'I would rather live a short life of glory than a long one of obscurity.'"),
     new MasonryGridItem().setImage("./assets/images/personal-work/kobe.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a digital drawing I did of Kobe Bryant. It is a simplified representation of him above the word 'Bryant' which is drippign as if it were covered in paint."),
     new MasonryGridItem().setImage("./assets/images/personal-work/nike1.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a digital drawing I did as a concept for a Nike logo. It depicts a person lazily laying on top of the Nike logo spinnign a basketball on their finger."),
     new MasonryGridItem().setImage("./assets/images/personal-work/nike2.jpg")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a digital drawing I did as a concept for a Nike logo. It depicts a pair of Nike shoes dangling from the Nike logo as if someone had tied them there or thrown them over the top."),
     new MasonryGridItem().setImage("./assets/images/personal-work/spiderverse.GIF")
-                         .addTag(workTypes.personal.tag),
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is an animated gif I created of one of my favorite movies: Spiderman Into the Spiderverse as a way to hype myself up for the sequel movie."),
 ]

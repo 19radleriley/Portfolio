@@ -13,6 +13,10 @@ let skills = [
 ]
 
 $(() => {
+
+    // Accessibility for tabbing
+    $("#about > *").attr("tabindex", "0");
+
     // JS for techs section
     sizeTechCards();
     window.onresize = sizeTechCards;

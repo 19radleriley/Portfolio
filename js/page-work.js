@@ -149,6 +149,9 @@ const work = [
                          .setAltText("This is the thumbnail for my 'CBA' case study. It's a concept image of the a logo I created for the College of Business adnimistration at the University of Wisconsin La Crosse depicting a simplified representation of their building over top of the text 'College of Business Administration'."),
 
     // ==================== Development ==================== 
+    // new MasonryGridItem().setImage("./assets/images/dev-work/team-aptiv.png")
+    //                      .addTag(workTypes.development.tag)
+    //                      .setAltText("This is a screenshot of the home page of a website my roomates and I made in college. I did the frontend development for the project."),
 
     // ==================== Personal ==================== 
     new MasonryGridItem().setImage("./assets/images/personal-work/clean-air.jpg")

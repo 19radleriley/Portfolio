@@ -6,7 +6,7 @@ class Skill {
 }
 
 let skills = [
-    new Skill("FrontendDevelopment", 85),
+    new Skill("Frontend Development", 85),
     new Skill("Fullstack Development", 70),
     new Skill("Digital Illustration", 50),
     new Skill("Layout Design", 40)

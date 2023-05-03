@@ -53,9 +53,25 @@ class MasonryGrid {
     }
 
     addItems(items) {
+        var observer = new IntersectionObserver(entries => {
+            entries.forEach(x => {
+                console.log("I happen");
+                if (x.isIntersecting) {
+                    x.target.classList.add("show");
+                    observer.unobserve(x.target);
+                }
+                else {
+                    x.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.2 });
+
         items.forEach(i => {
             document.querySelector(this.location).appendChild(i.container);
+            observer.observe(i.img);
         });
+
+   
 
         this.setItemRowHeightsAll(this.firstTime);
 

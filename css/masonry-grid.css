@@ -23,6 +23,12 @@
 
 .masonry-grid-item {
     width: 100%;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.masonry-grid-item.show {
+    opacity: 1;
 }
 
 @media (max-width: 650px) {

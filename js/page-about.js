@@ -24,6 +24,21 @@ $(() => {
         toggleFlipped(this); 
     });
 
+    // Refactor later lmao, but this is quick and dirty
+    var observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = "1";
+            }
+        });
+    }, { threshold : .5 });
+
+    document.querySelectorAll("#about > *").forEach(e => {
+        e.style.opacity = "0";
+        e.style.transition = "opacity .5s ease-in";
+        observer.observe(e);
+    });
+
     addSkills();
 
     eService = new EmailService()

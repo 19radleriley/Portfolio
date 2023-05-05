@@ -15,11 +15,11 @@
     padding-right: 1rem;
     padding-top: .5rem;
     padding-bottom: .5rem;
-    background-color: var(--off-white);
+    background-color: white;
     font-size: 1.25rem;
     font-family: "Jost";
     text-transform: uppercase;
-    color: var(--foreground-light);
+    background-color: var(--off-white);
 }
 
 .filter.current {
@@ -32,9 +32,6 @@
     font-size: 2rem;
     color: var(--foreground-dark);
     background-color: transparent;
-
-    /* letter-spacing: ; */
-    transition: 1s ease;
 }
 
 #filter-dropdown {
@@ -42,19 +39,27 @@
     position: absolute;
     top: 105%;
     right: 0;
+    left: 0;
     z-index: 10;
     display: none;
 }
 
-#filter-dropdown > .filter:not(:last-child) {
-    border-bottom: 2px solid var(--foreground-light);
+#filter-dropdown > * {
+    border-top: 2px solid var(--foreground-dark);
+    transition: color .25s ease, 
+                background-color .5s ease;
+}
+
+#filter-dropdown > *:hover {
+    background-color: var(--foreground-dark);
+    color: white;
 }
 
 .dropdown-arrow {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     padding-left: .25rem;
-    fill: var(--foreground-dark);
+    fill: var(--accent-color);
 }
 
 #personal-work {
@@ -77,12 +82,13 @@
     }
 
     .filter {
-        font-size: 2rem;
+        font-size: 1.75rem;
         background-color: transparent;
         text-align: center;
     }
 
     .filter.current {
+        font-size: 1.75rem;
         padding-left: 1rem;
         padding-top: .5rem;
         padding-bottom: .5rem;
@@ -92,8 +98,8 @@
         position: static;
     }
 
-    #filter-dropdown > .filter:not(:last-child) {
-        border-bottom: none;
+    #filter-dropdown > .filter {
+        border-top: none;
     }
 }
 

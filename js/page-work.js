@@ -4,11 +4,6 @@
 
 $(() => {
 
-    animateFilter();
-    setInterval(() => {
-        animateFilter();
-    }, 1000 * 15);
-
     var currentFilterTag = setupWorkFilter();
     var filteredWork = filterWork(currentFilterTag, work);
 
@@ -39,14 +34,6 @@ $(() => {
 
 
 // ========== Filter Functionality ==========
-
-function animateFilter() {
-    $(".filter.current").css("letter-spacing", "3px");
-
-    setTimeout(() => {
-        $(".filter.current").css("letter-spacing", "0px");
-    }, 1500);
-}
 
 function setupWorkFilter() {
     var first = null;

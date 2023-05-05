@@ -23,6 +23,7 @@
 }
 
 .filter.current {
+    position: relative;
     display: flex;
     align-items: center;
     padding-top: 0;
@@ -31,6 +32,9 @@
     font-size: 2rem;
     color: var(--foreground-dark);
     background-color: transparent;
+
+    /* letter-spacing: ; */
+    transition: 1s ease;
 }
 
 #filter-dropdown {

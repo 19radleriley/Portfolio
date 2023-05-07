@@ -151,9 +151,16 @@ const work = [
                          .setAltText("This is the thumbnail for my 'CBA' case study. It's a concept image of the a logo I created for the College of Business adnimistration at the University of Wisconsin La Crosse depicting a simplified representation of their building over top of the text 'College of Business Administration'."),
 
     // ==================== Development ==================== 
+    new MasonryGridItem().setImage("./assets/images/dev-work/travelist/thumbnail.jpg")
+                         .setLink("./travelist.html")
+                         .addTag(workTypes.development.tag)
+                         .setAltText("This is a thumbnail image for a travel website that I made. The thumbnail depicts a phone with my site sitting on a journal next to a laptop."),
     new MasonryGridItem().setImage("./assets/images/dev-work/aptiv/thumbnail.jpg")
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a screenshot of the home page of a website my roomates and I made in college. I did the frontend development for the project."),
+    new MasonryGridItem().setImage("./assets/images/dev-work/old-portfolio/thumbnail.jpg")
+                         .addTag(workTypes.development.tag)
+                         .setAltText("This is a thumbnail image for my old portfolio site. It depicts the site with the words 'Live is Like a Sketchbook, Here's Mine' on the front of the page."),
     new MasonryGridItem().setImage("./assets/images/dev-work/artsite/thumbnail.jpg")
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a screenshot of a simple web app I created when I was getting started in web development. The thumnail depicts the home page of a hypothetical site where I can sell my art with several item categories (ex. 'portraits' 'shirts' etc)."),

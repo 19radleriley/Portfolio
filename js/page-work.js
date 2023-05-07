@@ -88,12 +88,12 @@ function updateWorkFilter(event, masonryGrid) {
 
     // Rehide the dropdown
     updateFilterClickOff();
-    $("#filter-dropdown").css("display", "none");
+    toggleWorkFilterDropdown(0);
 }
 
-function toggleWorkFilterDropdown() {
+function toggleWorkFilterDropdown(time) {
     updateFilterClickOff();
-    $("#filter-dropdown").slideToggle(250, "swing");
+    $("#filter-dropdown").slideToggle(time != undefined ? time : 250);
 }
 
 function updateFilterClickOff() {

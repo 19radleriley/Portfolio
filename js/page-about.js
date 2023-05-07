@@ -31,7 +31,7 @@ $(() => {
                 e.target.style.opacity = "1";
             }
         });
-    }, { threshold : .5 });
+    }, { threshold : .15 });
 
     document.querySelectorAll("#about > *").forEach(e => {
         e.style.opacity = "0";

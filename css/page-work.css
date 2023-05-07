@@ -5,53 +5,43 @@
 }
 
 #work-filter {
-    display: flex;
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: fit-content;
 }
 
 .filter {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    font-size: 1.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: 2rem;
     font-family: "Jost";
     text-transform: uppercase;
-    background-color: var(--off-white);
+    color: var(--foreground-light);
 }
 
 .filter.current {
     position: relative;
     display: flex;
     align-items: center;
-    padding-top: 0;
-    padding-bottom: 0;
     padding-left: var(--row-height);
-    font-size: 2rem;
     color: var(--foreground-dark);
-    background-color: transparent;
 }
 
 #filter-dropdown {
     list-style: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    z-index: 10;
     display: none;
 }
 
-#filter-dropdown > * {
-    border-top: 1px solid var(--foreground-light);
+#filter-dropdown .filter {
+    /* display: inline; */
     transition: color .25s ease, 
                 background-color .5s ease;
+    opacity: 90%;
 }
 
-#filter-dropdown > *:hover {
-    background-color: var(--foreground-light);
-    color: white;
+#filter-dropdown .filter:hover {
+    color: var(--accent-color);
 }
 
 .dropdown-arrow {
@@ -59,6 +49,7 @@
     height: 1.5rem;
     padding-left: .25rem;
     fill: var(--accent-color);
+    transition: transform .25s ease;
 }
 
 #personal-work {
@@ -66,10 +57,13 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
+.masonry-grid {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
 @media (max-width: 770px) {
     #work-filter {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
         position: sticky;
         top: 0;
         width: auto;
@@ -81,24 +75,10 @@
     }
 
     .filter {
-        font-size: 1.75rem;
-        background-color: transparent;
         text-align: center;
-    }
-
-    .filter.current {
-        font-size: 1.75rem;
-        padding-left: 1rem;
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-    }
-
-    #filter-dropdown {
-        position: static;
-    }
-
-    #filter-dropdown > .filter {
-        border-top: none;
+        white-space: nowrap;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
     }
 }
 

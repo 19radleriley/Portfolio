@@ -55,7 +55,6 @@ class MasonryGrid {
     addItems(items) {
         var observer = new IntersectionObserver(entries => {
             entries.forEach(x => {
-                console.log("I happen");
                 if (x.isIntersecting) {
                     x.target.classList.add("show");
                     observer.unobserve(x.target);

@@ -27,13 +27,24 @@ $(() => {
 function openNav() {
     $("#main-nav").attr("class", "nav-visible");
     $("#backdrop-filter").fadeIn();
-    $("body").css("overflow-y", "hidden");
+    // if (isScreenDevice()) {
+        $("body").css("overflow-y", "hidden");
+    // } 
     $("body").css("transform", "translateX(-55vw)");
 }
 
 function closeNav() {
     $("#main-nav").attr("class", "nav-hidden");
     $("#backdrop-filter").fadeOut();
-    $("body").css("overflow-y", "auto");
+    // if (isScreenDevice()) {
+        $("body").css("overflow-y", "auto");
+    // } 
     $("body").css("transform", "translateX(0)");
+}
+
+// Detect if we are on a screen device
+function isScreenDevice() {
+    return ( 'ontouchstart' in window ) ||
+           ( navigator.maxTouchPoints > 0 ) ||
+           ( navigator.msMaxTouchPoints > 0 );
 }

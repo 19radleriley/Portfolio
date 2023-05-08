@@ -12,7 +12,7 @@
     /* Reused Colors */
     --foreground-dark: #414042;
     --foreground-light: #95989b;
-    --off-white: #f0f0f0; 
+    --off-white: #f0f0f0;
     --accent-color: #75C7A3;
     --accent-color-faded: #A8DACB;
 
@@ -29,6 +29,23 @@
     --color-transition: color .25s ease;
     --border-transition: border-color .25s ease;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--foreground-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--foreground-dark);
+}
+
 
 ::selection {
     background-color: var(--foreground-dark);
@@ -80,15 +97,16 @@ a.link:hover {
 
 /* This is the point at which we break into mobile view */
 @media (max-width: 650px) {
-   :root {
-    --page-margin: 1.5rem;
-   } 
+    :root {
+        --page-margin: 1.5rem;
+    }
 }
 
 @keyframes fade {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 100%;
     }

@@ -44,7 +44,7 @@ function getFilterObserver() {
         entries.forEach(e => {
             var filter = document.querySelector("#work-filter");
 
-            if (!e.isIntersecting && e.intersectionRect.x != 0) {
+            if (!e.isIntersecting && e.boundingClientRect.x >= 0) {
                     filter.classList.add("stuck");
             }
             else {

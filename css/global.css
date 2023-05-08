@@ -44,6 +44,8 @@
 body {
     font-family: "Karla", sans-serif;
     color: var(--foreground-dark);
+
+    min-height: 100vh;
 }
 
 .major-title {

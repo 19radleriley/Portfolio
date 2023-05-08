@@ -2,6 +2,7 @@
     margin-right: var(--page-margin);
     margin-left: var(--page-margin);
     --row-height: 10px;
+    --filter-line-bg: var(--foreground-light);
 }
 
 #work-filter {
@@ -9,12 +10,23 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+#work-filter::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--filter-line-bg);
+    left: .75rem;
+    right: 80%;
 }
 
 .filter {
     padding-left: .5rem;
-    padding-right: .5rem;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-family: "Jost";
     text-transform: uppercase;
     color: var(--foreground-light);
@@ -65,7 +77,7 @@
 @media (max-width: 770px) {
     #work-filter {
         position: sticky;
-        top: 0;
+        top: -1px;
         width: auto;
         flex-direction: column;
         align-items: center;
@@ -74,11 +86,23 @@
         opacity: 95%;
     }
 
+    /* When the work filter is stuck to the top get rid of some padding and line */
+    #work-filter.stuck {
+        --filter-line-bg: transparent;
+        padding-bottom: 0;
+    }
+
+    #work-filter::after {
+        left: 45%;
+        right: 45%;
+    }
+
     .filter {
         text-align: center;
         white-space: nowrap;
         padding-top: .25rem;
         padding-bottom: .25rem;
+        font-size: 1.5rem;
     }
 }
 

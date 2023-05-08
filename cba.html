@@ -27,11 +27,12 @@
 <body>
     <div id="backdrop-filter"></div>
     <!-- Start the navbar as being hidden -->
-    <nav class="nav-hidden">
-        <a href="./index.html"><img id="logo" class="hoverable" src="assets/images/MyLogo.png" alt=""></a>
+    <nav class="nav-hidden" id="main-nav">
+        <a href="./index.html"><img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt=""></a>
 
-        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 100 75" style="enable-background:new 0 0 100 75;" xml:space="preserve">
+        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 75"
+            style="enable-background:new 0 0 100 75;" xml:space="preserve">
             <g id="Isolation_Mode">
                 <g>
                     <rect class="hamburger-line top" width="100" height="10" />
@@ -44,11 +45,15 @@
                 </g>
             </g>
         </svg>
-        <ul id="nav-link-list">
-            <li><a href="./index.html" id="work-link" class="nav-link current hoverable">Work</a></li>
-            <li><a href="./about.html" id="about-link" class="nav-link hoverable">About</a></li>
-            <li><a href="./contact.html" id="contact-link" class="nav-link hoverable">Contact</a></li>
-        </ul>
+        <div id="nav-link-list">
+            <svg id="close" class="hoverable" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.78 77.78">
+                <rect class="cls-1" y="45" width="100" height="10" transform="translate(-31.82 38.89) rotate(-45)" />
+                <rect class="cls-1" y="45" width="100" height="10" transform="translate(38.89 -31.82) rotate(45)" />
+            </svg>
+            <span><a href="./index.html" id="work-link" class="nav-link current hoverable">Work</a></span>
+            <span><a href="./about.html" id="about-link" class="nav-link hoverable">About</a></span>
+            <span><a href="./contact.html" id="contact-link" class="nav-link hoverable">Contact</a></span>
+        </div>
     </nav>
 
     <main class="page case-study">

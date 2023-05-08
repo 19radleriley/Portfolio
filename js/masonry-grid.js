@@ -69,9 +69,7 @@ class MasonryGrid {
             document.querySelector(this.location).appendChild(i.container);
             observer.observe(i.img);
         });
-
    
-
         this.setItemRowHeightsAll(this.firstTime);
 
         $(window).off();

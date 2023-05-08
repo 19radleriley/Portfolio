@@ -1,4 +1,4 @@
-nav {
+#main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,11 +13,7 @@ nav {
     display: flex;
 }
 
-#nav-link-list > li {
-    list-style: none;
-}
-
-#nav-link-list > li:not(li:last-child) {
+#nav-link-list > *:not(li:last-child) {
     margin-right: 2.5rem;
 }
 
@@ -45,35 +41,67 @@ nav {
     fill: var(--foreground-light);
 }
 
+#close {
+    display: none;
+    width: 45px;
+    fill: var(--foreground-light);
+}
 
 @media (max-width: 650px) {
-    nav {
+    #main-nav {
         padding-top: calc(var(--page-margin) + 1rem);
         padding-left: var(--page-margin);
         padding-right: var(--page-margin);
     }
 
-    #hamburger {
+    #hamburger, #close {
         display: block;
-        z-index: 100;
     }
 
     #nav-link-list {
+        box-sizing: border-box;
         z-index: 50;
-        display: block;
+        flex-direction: column;
         position: fixed;
-        left: 35%;
-        right: 0;
+        right: -100%;
+        left: 100%;
         top: 0;
-        bottom: 0;
-        padding-top: 20vh;
-        padding-left: 5vw;
-        background-color: white;
-        transition: transform .25s ease-in-out;
+        width: 55%;
+        padding-top: 15vh;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        /* background-color: var(--off-white); */
+        text-align: right;
     }
 
-    nav.nav-hidden > #nav-link-list {
-        transform: translateX(65vw);
+    #close {
+        position: absolute;
+        right: 1rem;
+        top: 3rem;
+    }
+
+    #nav-link-list::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        left: 70%;
+        height: 2px;
+        background-color: var(--foreground-light); 
+    }
+
+    body {
+        transition: transform .5s ease;
+        overflow-x: hidden;
+    }
+
+    /* nav.nav-hidden > #nav-link-list {
+        transform: translateX(65vw); 
+        right: -100%;
+        left: 100%;
+    } */
+    #nav-link-list > *:not(li:last-child) {
+        margin-right: 0;
     }
 
     .nav-link {
@@ -96,7 +124,7 @@ nav {
     /* ===== Animation for clicking on the hamburger ===== */
 
     /* When navbar is hidden */
-    .hamburger-line {
+    /* .hamburger-line {
         transition: 
             y .25s .1s,
             transform .25s,
@@ -104,7 +132,6 @@ nav {
         transform-origin: center;
     }
 
-    /* When navbar is visible */
     nav.nav-visible .hamburger-line {
         transition: 
             y .25s,
@@ -127,5 +154,5 @@ nav {
 
     nav.nav-visible .hamburger-line.bottom {
         transform: rotate(-45deg);
-    }
+    } */
 }

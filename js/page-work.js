@@ -25,12 +25,49 @@ $(() => {
         }
     });
 
+    var filterObserver = getFilterObserver();
+    observeFilter(filterObserver);
+
+    $(window).on("resize", () => {
+        observeFilter(filterObserver);
+    });
+
     // // Make our personal work a gallery
     // $("#personal").on("click", () => {
 
     // });
 
 });
+
+function getFilterObserver() {
+    return observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            var filter = document.querySelector("#work-filter");
+
+            if (!e.isIntersecting && e.intersectionRect.x != 0) {
+                    filter.classList.add("stuck");
+            }
+            else {
+                filter.classList.remove("stuck");
+            }
+        });
+    }, { threshold : 1 });
+}
+
+function observeFilter(observer) {
+    if (window.innerWidth <= 770) {
+        var filter = document.querySelector("#work-filter");
+        var elements = observer.takeRecords();
+        if (!elements.some(entry => entry.target == filter)) {
+            observer.observe(filter);
+        }
+    }
+    else {
+        observer.disconnect();
+    }
+}
+
+// checkIfStuck(observer)
 
 
 // ========== Filter Functionality ==========

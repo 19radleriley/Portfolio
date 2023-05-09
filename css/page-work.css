@@ -12,6 +12,7 @@
     width: fit-content;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
+    transition: padding-bottom 1s ease;
 }
 
 #work-filter::after {

@@ -1,50 +1,12 @@
 
-
-// ========== Fires on page load ==========
-
-$(() => {
-
-    var currentFilterTag = setupWorkFilter();
-    var filteredWork = filterWork(currentFilterTag, work);
-
-    var masonryGrid = new MasonryGrid();
-    masonryGrid.setLocation(".masonry-grid")
-               .addItems(filteredWork);
-
-    // On click event handlers for filter
-    $("#filter-dropdown > *").on("click keydown", e => {
-        // For accessibility, only call function if enter key pressed
-        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
-            updateWorkFilter(e, masonryGrid)
-        }
-    });
-    $(".filter.current").on("click keydown", e => {
-        // For accessibility, only call function if enter key pressed
-        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
-            toggleWorkFilterDropdown();
-        }
-    });
-
-    var filterObserver = getFilterObserver();
-    observeFilter(filterObserver);
-
-    $(window).on("resize", () => {
-        observeFilter(filterObserver);
-    });
-
-    // // Make our personal work a gallery
-    // $("#personal").on("click", () => {
-
-    // });
-
-});
+import Gallery from "./gallery.js"
+import { MasonryGrid, MasonryGridItem } from "./masonry-grid.js"
 
 function getFilterObserver() {
-    return observer = new IntersectionObserver(entries => {
+    return new IntersectionObserver(entries => {
         entries.forEach(e => {
             var filter = document.querySelector("#work-filter");
 
-            console.log(e);
             if (!e.isIntersecting && e.boundingClientRect.x >= 0) {
                     filter.classList.add("stuck");
             }
@@ -70,88 +32,6 @@ function observeFilter(observer) {
 
 // checkIfStuck(observer)
 
-
-// ========== Filter Functionality ==========
-
-function setupWorkFilter() {
-    var first = null;
-    var i = 0;
-    for (const key in workTypes) {
-        if (!first) {
-            first = workTypes[key].tag;
-            $(".filter.current").append(workTypes[key].name);
-            $(".filter.current").append(dropdownArrow);
-            $(".filter.current").attr("id", first);
-            $(".filter.current").attr("tabindex", i);
-
-            // Set id of masonry grid
-            $(".masonry-grid").attr("id", `${first}-work`);
-        }
-        else {
-            $("#filter-dropdown")
-                .append($(`<li>${workTypes[key].name}</li>`)
-                            .attr("class", "filter hoverable")
-                            .attr("id", workTypes[key].tag)
-                            .attr("tabindex", i));
-        }
-    }
-
-    return first;
-}
-
-function filterWork(filter, work) {
-    return work.filter(w => w.tags.includes(filter));
-}
-
-function updateWorkFilter(event, masonryGrid) {
-    var newCurrent = event.target.innerText;
-    var newCurrentTag = event.target.id;
-    var newCurrentTabIndex = event.target.tabIndex;
-
-    var current = $(".filter.current");
-    event.target.innerText = current.text().trim();
-    event.target.id = current.attr("id");
-    event.target.tabIndex = current.attr("tabindex");
-    current.text(newCurrent);
-    current.attr("id", newCurrentTag);
-    current.attr("tabindex", newCurrentTabIndex);
-    current.append($(dropdownArrow));
-
-    // Set id of masonry grid
-    $(".masonry-grid").attr("id", `${newCurrentTag}-work`);
-
-    var filteredWork = filterWork(newCurrentTag, work);
-    masonryGrid.removeAllItems();
-    masonryGrid.addItems(filteredWork);
-
-    // Rehide the dropdown
-    updateFilterClickOff();
-    toggleWorkFilterDropdown(0);
-}
-
-function toggleWorkFilterDropdown(time) {
-    updateFilterClickOff();
-    $("#filter-dropdown").slideToggle(time != undefined ? time : 250);
-}
-
-function updateFilterClickOff() {
-    var dropdown = $("#filter-dropdown");
-
-    // If the dropdown is not showing and we are about to show it
-    if (dropdown.css("display") == "none") {
-        $(window).on("click", clickOffFilter);
-    }
-    else {
-        $(window).off("click", clickOffFilter);
-    }
-}
-
-function clickOffFilter(e) {
-    if (!e.target.closest("#work-filter")) {
-        toggleWorkFilterDropdown();
-    }
-}
-
 // =============== Globals and Classes ===============
 
 class WorkType {
@@ -166,7 +46,6 @@ const workTypes = {
     development : new WorkType("Development", "development"),
     personal : new WorkType("Personal Work", "personal")
 }
-
 
 const dropdownArrow = `
 <svg class="dropdown-arrow" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -241,3 +120,137 @@ const work = [
                          .addTag(workTypes.personal.tag)
                          .setAltText("This is an animated gif I created of one of my favorite movies: Spiderman Into the Spiderverse as a way to hype myself up for the sequel movie."),
 ]
+
+var gallery = null;
+
+// ========== Filter Functionality ==========
+
+function setupWorkFilter() {
+    var first = null;
+    var i = 0;
+    for (const key in workTypes) {
+        if (!first) {
+            first = workTypes[key].tag;
+            $(".filter.current").append(workTypes[key].name);
+            $(".filter.current").append(dropdownArrow);
+            $(".filter.current").attr("id", first);
+            $(".filter.current").attr("tabindex", i);
+
+            // Set id of masonry grid
+            $(".masonry-grid").attr("id", `${first}-work`);
+        }
+        else {
+            $("#filter-dropdown")
+                .append($(`<li>${workTypes[key].name}</li>`)
+                            .attr("class", "filter hoverable")
+                            .attr("id", workTypes[key].tag)
+                            .attr("tabindex", i));
+        }
+    }
+
+    return first;
+}
+
+function filterWork(filter, work) {
+    return work.filter(w => w.tags.includes(filter));
+}
+
+function updateWorkFilter(event, masonryGrid) {
+    var newCurrent = event.target.innerText;
+    var newCurrentTag = event.target.id;
+    var newCurrentTabIndex = event.target.tabIndex;
+
+    var current = $(".filter.current");
+    console.dir(current[0]);
+
+    var leavingPersonalWork = current[0].id == workTypes.personal.tag;
+    var enteringPersonalWork = event.target.id == workTypes.personal.tag;
+
+    event.target.innerText = current.text().trim();
+    event.target.id = current.attr("id");
+    event.target.tabIndex = current.attr("tabindex");
+    current.text(newCurrent);
+    current.attr("id", newCurrentTag);
+    current.attr("tabindex", newCurrentTabIndex);
+    current.append($(dropdownArrow));
+
+    // Set id of masonry grid
+    $(".masonry-grid").attr("id", `${newCurrentTag}-work`);
+
+    var filteredWork = filterWork(newCurrentTag, work);
+    masonryGrid.removeAllItems();
+    masonryGrid.addItems(filteredWork);
+
+    if (enteringPersonalWork) {
+        gallery = new Gallery();
+        gallery.startGallery(".masonry-grid", ".masonry-grid-item-container");
+    }
+    else if (leavingPersonalWork) {
+        gallery.destroyGallery();
+    }
+
+    // Rehide the dropdown
+    updateFilterClickOff();
+    toggleWorkFilterDropdown(0);
+}
+
+function toggleWorkFilterDropdown(time) {
+    updateFilterClickOff();
+    $("#filter-dropdown").slideToggle(time != undefined ? time : 250);
+}
+
+function updateFilterClickOff() {
+    var dropdown = $("#filter-dropdown");
+
+    // If the dropdown is not showing and we are about to show it
+    if (dropdown.css("display") == "none") {
+        $(window).on("click", clickOffFilter);
+    }
+    else {
+        $(window).off("click", clickOffFilter);
+    }
+}
+
+function clickOffFilter(e) {
+    if (!e.target.closest("#work-filter")) {
+        toggleWorkFilterDropdown();
+    }
+}
+
+// ========== Fires on page load ==========
+
+$(() => {
+
+    var currentFilterTag = setupWorkFilter();
+    var filteredWork = filterWork(currentFilterTag, work);
+
+    var masonryGrid = new MasonryGrid();
+    masonryGrid.setLocation(".masonry-grid")
+               .addItems(filteredWork);
+
+    // On click event handlers for filter
+    $("#filter-dropdown > *").on("click keydown", e => {
+        // For accessibility, only call function if enter key pressed
+        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
+            updateWorkFilter(e, masonryGrid)
+        }
+    });
+    $(".filter.current").on("click keydown", e => {
+        // For accessibility, only call function if enter key pressed
+        if (e.type == "click" || e.type == "keydown" && e.which == 13) {
+            toggleWorkFilterDropdown();
+        }
+    });
+
+    var filterObserver = getFilterObserver();
+    observeFilter(filterObserver);
+
+    $(window).on("resize", () => {
+        observeFilter(filterObserver);
+    });
+
+    // // Make our personal work a gallery
+    // $("#personal").on("click", () => {
+
+    // });
+});

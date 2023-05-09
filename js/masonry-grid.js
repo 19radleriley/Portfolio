@@ -1,6 +1,7 @@
 class MasonryGridItem {
     constructor() {
-        this.container = document.createElement("div");
+        // Wrap all images in an <a> tag
+        this.container = document.createElement("a");
         this.container.setAttribute("class", "masonry-grid-item-container");
         this.tags = [];
     }
@@ -14,25 +15,14 @@ class MasonryGridItem {
     setImage(src) {
         this.img = document.createElement("img");
         this.img.setAttribute("src", src);
+        this.container.setAttribute("href", src);
         this.img.setAttribute("class", "masonry-grid-item");
-        if (this.a) {
-            this.a.appendChild(this.img);
-            this.container.appendChild(this.a);
-        }
-        else {
-            this.container.appendChild(this.img);
-        }
+        this.container.appendChild(this.img);
         return this;
     }
 
     setLink(href) {
-        this.a = document.createElement("a");
-        this.a.setAttribute("href", href);
-        if (this.img) {
-            this.container.removeChild(this.img);
-            this.a.appendChild(this.img);
-        }
-        this.container.appendChild(this.a);
+        this.container.setAttribute("href", href);
         return this;
     }
 
@@ -108,3 +98,6 @@ class MasonryGrid {
         container.setAttribute("style", `grid-row-end: span ${Math.floor(rows) + 1}`);
     }
 }
+
+export { MasonryGridItem };
+export { MasonryGrid };

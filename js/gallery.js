@@ -1,78 +1,56 @@
+// Include Lightbox 
+import PhotoSwipeLightbox from "./photoswipe-lightbox.esm.js";
+import PhotoSwipe from "./photoswipe.esm.js";
+
 class Gallery {
-    startGallery(src, id, orientation) {
-        //addGalleryButton("left");
-        // Place the image
-        $(".gallery").append($("<img>", {
-            src: src,
-            id: id,
-            class: `gallery-current ${orientation}`
-        }));
-        //addGalleryButton("right");
-
-        //updateGallerySize();
-
-        $("#hamburger").css("z-index", "0");
-        $("body").css("overflow", "hidden");
-
-        $(".gallery").fadeIn(250);
+    startGallery(gallerySelector, childrenSelector) {
+        this.gallerySelector = gallerySelector; 
+        this.setImageDimensions(childrenSelector);
+        this.startPhotoswipe(gallerySelector, childrenSelector);
     }
 
-    addGalleryButton(direction) {
-        $("#gallery-container").append($("<button>", {
-            class: `gallery-button ${direction} hoverable`
-        }).click(() => {
-            var id = $(".gallery-current").attr("id");
-            num = Number(id.slice(id.indexOf("-") + 1));
-
-            // Get the next image based on which button was clicked
-            // (Make sure to check the edge cases)
-            num = direction == "left" ? num - 1 : num + 1;
-
-            // Handles going over to the right
-            num = num % personalWork.length;
-            // Handles going over to the left
-            if (num < 0) {
-                num = personalWork.length - 1;
-            }
-
-            var next = personalWork[num];
-
-            $(".gallery-current").attr("src", next.image);
-            $(".gallery-current").attr("id", `thumbnail-${num}`);
-        }));
-
-        $(`.gallery-button.${direction}`).append($("<i>", {
-            class: `fa-solid fa-chevron-${direction}`
-        }));
-    }
-
-    closeGallery(event) {
-        if (event.target == this) {
-            $(".gallery").fadeOut(250, () => {
-                $(".gallery .gallery-current").remove();
-                $(".gallery .gallery-button").remove();
-
-                $("#hamburger").css("z-index", "100");
-                $("body").css("overflow", "auto");
+    setImageDimensions(childrenSelector) {
+        this.waitForImages(childrenSelector, () => {
+            document.querySelectorAll(childrenSelector).forEach(element => {
+                var img = element.querySelector("img");
+                element.setAttribute("data-pswp-height", img.naturalHeight);
+                element.setAttribute("data-pswp-width", img.naturalWidth);
+                console.log("I happen");
             });
+        })
+    }
+
+    // Wait for images to be added to the dom
+    // Will be able to delete me later
+    waitForImages(childrenSelector, callback) {
+        if (document.querySelectorAll(childrenSelector).length != 0) {
+            callback();
+        } else {
+            window.requestAnimationFrame(() => this.waitForImages(childrenSelector, callback));
         }
     }
 
-    updateGallerySize() {
-        var galleryCurrent = document.querySelector(".gallery-current");
-        var height = galleryCurrent.naturalHeight;
-        var width = galleryCurrent.naturalWidth;
+    startPhotoswipe(gallerySelector, childrenSelector) {
+        // Set the gallery's class to 'pswp-gallery'
+        // Set the data-pswp-height and widths for each image (set on the anchor tag)
 
-        // Portrait image
-        if (height > width) {
-            $(".gallery-current").css("height", "var(--portrait-height)");
-            $(".gallery-current").css("width", "var(--portrait-width)");
-        }
-        // Landscape image
-        else {
-            $(".gallery-current").css("height", "var(--landscape-height)");
-            $(".gallery-current").css("width", "var(--landscape-width)");
-        }
+        document.querySelector(gallerySelector).classList.add("pswp-gallery");
+        // In masonry grid wrap every image in an anchor tag DONE
+
+        this.lightbox = new PhotoSwipeLightbox({
+            gallery: gallerySelector,
+            children: childrenSelector,
+            pswpModule: PhotoSwipe
+        });
+
+        this.lightbox.init();
     }
 
+    destroyGallery() {
+        console.log(document.querySelector(this.gallerySelector));
+        console.log(this.gallerySelector);
+        this.lightbox.destroy();
+        document.querySelector(this.gallerySelector).classList.remove("pswp-gallery");
+    }
 }
+export { Gallery as default };

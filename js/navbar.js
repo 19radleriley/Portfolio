@@ -1,8 +1,5 @@
 $(() => {
-    console.log(window);
-
     $(window).on("resize", () => {
-        console.log("I happen");
         if (window.innerWidth > 649) {
             closeNav();
         }
@@ -39,7 +36,7 @@ function closeNav() {
     // if (isScreenDevice()) {
         $("body").css("overflow-y", "auto");
     // } 
-    $("body").css("transform", "translateX(0)");
+    $("body").css("transform", "");
 }
 
 // Detect if we are on a screen device

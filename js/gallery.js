@@ -15,7 +15,6 @@ class Gallery {
                 var img = element.querySelector("img");
                 element.setAttribute("data-pswp-height", img.naturalHeight);
                 element.setAttribute("data-pswp-width", img.naturalWidth);
-                console.log("I happen");
             });
         })
     }

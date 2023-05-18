@@ -73,12 +73,15 @@ const work = [
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a thumbnail image for a travel website that I made. The thumbnail depicts a phone with my site sitting on a journal next to a laptop."),
     new MasonryGridItem().setImage("./assets/images/dev-work/aptiv/thumbnail.jpg")
+                         .setLink("./team-aptiv.html")
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a screenshot of the home page of a website my roomates and I made in college. I did the frontend development for the project."),
     new MasonryGridItem().setImage("./assets/images/dev-work/old-portfolio/thumbnail.jpg")
+                         .setLink("./old-portfolio.html")
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a thumbnail image for my old portfolio site. It depicts the site with the words 'Live is Like a Sketchbook, Here's Mine' on the front of the page."),
     new MasonryGridItem().setImage("./assets/images/dev-work/artsite/thumbnail.jpg")
+                         .setLink("./artsite.html")
                          .addTag(workTypes.development.tag)
                          .setAltText("This is a screenshot of a simple web app I created when I was getting started in web development. The thumnail depicts the home page of a hypothetical site where I can sell my art with several item categories (ex. 'portraits' 'shirts' etc)."),
 

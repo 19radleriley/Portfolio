@@ -42,9 +42,9 @@ class WorkType {
 }
 
 const workTypes = {
-    client : new WorkType("Client Designs", "client"),
-    development : new WorkType("Development", "development"),
-    personal : new WorkType("Personal Work", "personal")
+    client : new WorkType("Graphic Design", "client"),
+    development : new WorkType("Web Development", "development"),
+    personal : new WorkType("Personal Art", "personal")
 }
 
 const dropdownArrow = `

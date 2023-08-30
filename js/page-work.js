@@ -66,6 +66,11 @@ const work = [
                          .setLink("./cba.html")
                          .addTag(workTypes.client.tag)
                          .setAltText("This is the thumbnail for my 'CBA' case study. It's a concept image of the a logo I created for the College of Business adnimistration at the University of Wisconsin La Crosse depicting a simplified representation of their building over top of the text 'College of Business Administration'."),
+    new MasonryGridItem().setImage("./assets/images/client-work/motivation-marathon/thumbnail.jpg")
+                         .setLink("./motivation-marathon.html")
+                         .addTag(workTypes.client.tag)
+                         .setAltText("This is the thumbnail image for a 'case study' I did where I had artificial intelligence be my 'client'. It tasked me with creating a poster for a hypothetical event called Motivation Marathon. The poster depicts a hand with a running watch over bold text saying 'Motivation Marathon'."),
+
 
     // ==================== Development ==================== 
     new MasonryGridItem().setImage("./assets/images/dev-work/travelist/thumbnail.jpg")

@@ -91,6 +91,9 @@ const work = [
                          .setAltText("This is a screenshot of a simple web app I created when I was getting started in web development. The thumnail depicts the home page of a hypothetical site where I can sell my art with several item categories (ex. 'portraits' 'shirts' etc)."),
 
     // ==================== Personal ==================== 
+    new MasonryGridItem().setImage("./assets/images/personal-work/watch.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("This is a colored pencil drawing of my running watch. On the watchfaces it reads 16:53 which is my PR for a 5k that I am trying to beat."),
     new MasonryGridItem().setImage("./assets/images/personal-work/DDLM.png")
                          .addTag(workTypes.personal.tag)
                          .setAltText("This is a digital drawing of a caleverita (skull) that I created. I wanted to do something related to spanish and also tie in motivation / branding. The text 'todos mueren solo hazlo' translates to 'everyone dies just do it' which is a nod to Nike's iconic slogan!"),

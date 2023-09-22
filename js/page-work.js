@@ -73,6 +73,10 @@ const work = [
 
 
     // ==================== Development ==================== 
+    new MasonryGridItem().setImage("./assets/images/dev-work/run-tracker/thumbnail.jpg")
+                         .setLink("./run-tracker.html")
+                         .addTag(workTypes.development.tag)
+                         .setAltText("This is a thumbnail image for a run-tracker web app that I created using ASP .NET. The image depicts a phone screen with my web app on it."),
     new MasonryGridItem().setImage("./assets/images/dev-work/travelist/thumbnail.jpg")
                          .setLink("./travelist.html")
                          .addTag(workTypes.development.tag)

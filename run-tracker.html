@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/page-case-study.css">
+    <link rel="stylesheet" href="./css/footer.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Fontawesome Link -->
+    <script src="https://kit.fontawesome.com/55b918ce29.js" crossorigin="anonymous"></script>
+
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <!-- Personal Javascript -->
+    <script src="js/navbar.js"></script>
+
+    <title>RunTracker</title>
+</head>
+
+<body>
+    <div id="backdrop-filter"></div>
+    <!-- Start the navbar as being hidden -->
+    <nav class="nav-hidden" id="main-nav">
+        <a href="./index.html"><img id="logo" class="hoverable" src="./assets/images/MyLogo.png" alt=""></a>
+
+        <svg id="hamburger" class="hoverable" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 75"
+            style="enable-background:new 0 0 100 75;" xml:space="preserve">
+            <g id="Isolation_Mode">
+                <g>
+                    <rect class="hamburger-line top" width="100" height="10" />
+                </g>
+                <g>
+                    <rect class="hamburger-line middle" y="32.5" width="100" height="10" />
+                </g>
+                <g>
+                    <rect class="hamburger-line bottom" y="65" width="100" height="10" />
+                </g>
+            </g>
+        </svg>
+        <div id="nav-link-list">
+            <svg id="close" class="hoverable" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.78 77.78">
+                <rect class="cls-1" y="45" width="100" height="10" transform="translate(-31.82 38.89) rotate(-45)" />
+                <rect class="cls-1" y="45" width="100" height="10" transform="translate(38.89 -31.82) rotate(45)" />
+            </svg>
+            <span><a href="./index.html" id="work-link" class="nav-link current hoverable">Work</a></span>
+            <span><a href="./about.html" id="about-link" class="nav-link hoverable">About</a></span>
+            <span><a href="./contact.html" id="contact-link" class="nav-link hoverable">Contact</a></span>
+        </div>
+    </nav>
+
+    <main class="page case-study">
+
+        <header>
+            <h1 class="major-title case-study-title">RunTracker</h1>
+            <div class="case-study-description">
+                <p class="case-study-subtitle">RunTracker is a simple ASP .NET and MySQL web app that I created to record my runs. It was helpful to refresh myself on ASP .NET concepts which I learned during my internship at Mayo Clinic in 2022.</b></p>
+                <ul class="case-study-information">
+                    <li>Date: August, 2023</li>
+                    <Li>Technologies:</Li>
+                    <Li>ASP .NET, MySQL</Li>
+                    <li><a class="link" target="_blank" href="https://github.com/19radleriley/RunTracker">View Source Code</a></li>
+                </ul>
+            </div>
+        </header>
+        <img src="assets/images/dev-work/run-tracker/thumbnail.jpg" alt="" class="case-study-img">
+        <video class="case-study-img" playsinline autoplay loop muted>
+            <source src="assets/images/dev-work/run-tracker/Stats.mp4" type="video/mp4">
+        </video>
+        <video class="case-study-img" playsinline autoplay loop muted>
+            <source src="assets/images/dev-work/run-tracker/Notes.mp4" type="video/mp4">
+        </video>
+        <img src="assets/images/dev-work/run-tracker/mobile.jpg" alt="" class="case-study-img">
+        <img src="assets/images/dev-work/run-tracker/CreateRunDesktopView.png" alt="" class="case-study-img">
+    </main>
+
+    <footer>
+        <nav class="footer-links">
+            <a class="footer-link link hoverable" target="_blank"
+                href="https://www.linkedin.com/in/rileyradle/">LinkedIn</a>
+            <a class="footer-link link hoverable" target="_blank"
+                href="https://www.instagram.com/riley11radle">Instagram</a>
+            <a class="footer-link link hoverable" target="_blank" href="https://github.com/19radleriley">GitHub</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

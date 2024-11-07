@@ -42,9 +42,9 @@ class WorkType {
 }
 
 const workTypes = {
+    personal : new WorkType("Personal Art", "personal"),
     client : new WorkType("Graphic Design", "client"),
     development : new WorkType("Web Development", "development"),
-    personal : new WorkType("Personal Art", "personal")
 }
 
 const dropdownArrow = `
@@ -245,6 +245,13 @@ $(() => {
     var masonryGrid = new MasonryGrid();
     masonryGrid.setLocation(".masonry-grid")
                .addItems(filteredWork);
+
+
+    // Added when changing to just personal work
+    gallery = new Gallery();
+    gallery.startGallery(".masonry-grid", ".masonry-grid-item-container");
+    // Added when changing to just personal work
+
 
     // On click event handlers for filter
     $("#filter-dropdown > *").on("click keydown", e => {

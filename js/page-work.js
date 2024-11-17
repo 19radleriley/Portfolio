@@ -98,6 +98,21 @@ const work = [
     new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=1200,height=1855/375c41/273964258/6711d8a7cef0a64403fad82b/vsco_101724.jpg")
                          .addTag(workTypes.personal.tag)
                          .setAltText("A digital painting of a pair of Nike running shoes."),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=540,height=960/375c41/273964258/669f02cfab9871513e54be69/vsco_072224.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText(""),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=517,height=800/375c41/273964258/668429a52cfe4669db95cc75/Goggins.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText(""),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=1200,height=900/375c41/273964258/65b714260f3587c41ccc5db3/HNI.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText(""),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=480,height=360/375c41/273964258/65a2bc5f55c4c8ad91a22c5e/MJFlying.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText(""),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=480,height=640/375c41/273964258/659acd803604440bbb925ce5/BiggieFinal.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText(""),
     new MasonryGridItem().setImage("./assets/images/personal-work/watch.jpg")
                          .addTag(workTypes.personal.tag)
                          .setAltText("This is a colored pencil drawing of my running watch. On the watchfaces it reads 16:53 which is my PR for a 5k that I am trying to beat."),

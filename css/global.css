@@ -1,6 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=OpenSans&display=swap');
 
 /* Global resets */
 * {
@@ -10,11 +9,14 @@
 
 :root {
     /* Reused Colors */
-    --foreground-dark: #414042;
+    /* --foreground-dark: #414042;
     --foreground-light: #95989b;
-    --off-white: #f0f0f0;
-    --accent-color: #75C7A3;
-    --accent-color-faded: #A8DACB;
+    --off-white: #f0f0f0; */
+    --accent-color: #e77b00;
+    /* --accent-color-faded: #A8DACB; */
+
+    --main-background-color: rgb(15, 15, 15);
+    --foreground-color-1: white;
 
     /* Reused border */
     --border: 20px solid var(--foreground-dark);
@@ -28,6 +30,10 @@
     --background-transition: background-color .25s ease;
     --color-transition: color .25s ease;
     --border-transition: border-color .25s ease;
+
+    /* Transforms for opening nav animation */
+    --open-nav-transform: translateX(-55vw);
+    --open-nav-transform-transition: transform .5s ease;
 }
 
 ::-webkit-scrollbar {
@@ -46,12 +52,6 @@
     background-color: var(--foreground-dark);
 }
 
-
-::selection {
-    background-color: var(--foreground-dark);
-    color: white;
-}
-
 :focus-visible {
     outline: 2px solid var(--foreground-dark);
     border-radius: 0;
@@ -59,16 +59,17 @@
 }
 
 body {
-    font-family: "Karla", sans-serif;
-    /* color: var(--foreground-dark); */
-    color: white;
-    background-color: #141414;
+    font-family: "Open Sans", sans-serif;
+    color: var(--foreground-color-1);
+    background-color: var(--main-background-color);
 
     min-height: 100vh;
+
+    transition: var(--background-transition);
 }
 
 .major-title {
-    font-family: "Jost", "Karla", sans-serif;
+    font-family: "Oswald", sans-serif;
     letter-spacing: 0;
     text-transform: uppercase;
 }
@@ -91,11 +92,6 @@ a.link {
 a.link:hover {
     color: var(--accent-color);
 }
-
-/* .page > * {
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
-} */
 
 /* This is the point at which we break into mobile view */
 @media (max-width: 650px) {

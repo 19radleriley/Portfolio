@@ -1,3 +1,5 @@
+//import Splide from '@splidejs/splide';
+
 class Skill {
     constructor(name, rank) {
         this.name = name;
@@ -56,6 +58,12 @@ $(() => {
     $("#request").on("click", e => {
         eService.sendEmail(e);
     });
+
+    new Splide("#about-me-carousel", {
+        type : "loop",
+        padding : "2rem",
+        autoPlay : true,
+    }).mount();
 });
 
 function addSkills() {

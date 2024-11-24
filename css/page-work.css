@@ -1,4 +1,4 @@
-#work {
+#work  {
     margin-right: var(--page-margin);
     margin-left: var(--page-margin);
     --row-height: 10px;
@@ -109,6 +109,9 @@
 
 @media (max-width: 650px) {
     #personal-work {
+        padding-left: 0;
+        padding-right: 0;
+
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
 

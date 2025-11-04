@@ -98,6 +98,9 @@ const work = [
     new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=1136,height=1200/375c41/273964258/68f84296cf8dece1b8070c34/vsco_102125.jpg")
                          .addTag(workTypes.personal.tag)
                          .setAltText("A digital painting of a track with a house and blue sky in the background."),
+    new MasonryGridItem().setImage("https://img.vsco.co/cdn-cgi/image/width=1200,height=1600/375c41/273964258/690a1195e9ca2d23cab947a3/Bracelet.png")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("A red and white bead bracelet."),
     new MasonryGridItem().setImage("https://img.vsco.co/375c41/273964258/67aab3e090d9d2771392fb0d/vsco_021025.jpg")
                          .addTag(workTypes.personal.tag)
                          .setAltText("A digital painting of a girl with tattoos and a shining heart necklace."),

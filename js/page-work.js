@@ -95,6 +95,9 @@ const work = [
                          .setAltText("This is a screenshot of a simple web app I created when I was getting started in web development. The thumnail depicts the home page of a hypothetical site where I can sell my art with several item categories (ex. 'portraits' 'shirts' etc)."),
 
     // ==================== Personal ====================
+    new MasonryGridItem().setImage("https://img.vsco.co/375c41/273964258/6ab2a7fe69477831e7980f83/vsco_092226.jpg")
+                         .addTag(workTypes.personal.tag)
+                         .setAltText("A painting of a mountain path with an old wooden sign."), 
     new MasonryGridItem().setImage("https://img.vsco.co/375c41/273964258/6a52ce52d0a85b99e88592ce/vsco_071126.jpg")
                          .addTag(workTypes.personal.tag)
                          .setAltText("A painting of a brown cow"), 
